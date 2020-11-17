@@ -1,0 +1,2005 @@
+# baseURI: https://nisth.ntu.edu.sg/covid
+# imports: http://purl.org/dc/terms/
+# imports: http://qudt.org/1.1/vocab/unit
+# imports: http://www.w3.org/2004/02/skos/core
+# prefix: co
+
+@prefix : <https://nisth.ntu.edu.sg/covid#> .
+@prefix co: <https://nisth.ntu.edu.sg/covid#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+qudt:numericValue
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          co:Measure-Value
+          co:Study_type-Num
+          co:Measure-Relative_value
+        ) ;
+    ] ;
+.
+qudt:unit
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          co:Measure-Value
+          co:Measure-Value_Range
+          co:Measure-Relative_value
+        ) ;
+    ] ;
+.
+<https://nisth.ntu.edu.sg/covid>
+  rdf:type owl:Ontology ;
+  owl:imports <http://purl.org/dc/terms/> ;
+  owl:imports <http://qudt.org/1.1/vocab/unit> ;
+  owl:imports <http://www.w3.org/2004/02/skos/core> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+co:Adjusted_Odds_Ratio
+  rdf:type co:Measure-Entity ;
+  rdfs:label "The odds ratio tells us how much higher the odds of exposure are among case-patients than among controls. " ;
+.
+co:Adjusted_odds_ratio
+  rdf:type qudt:Unit ;
+.
+co:Adult
+  rdf:type co:Domain-relevant_group ;
+.
+co:Adults
+  rdf:type owl:Class ;
+  rdfs:label "Adults" ;
+  rdfs:subClassOf co:Age_group ;
+.
+co:Age_group
+  rdf:type owl:Class ;
+  rdfs:label "Age group" ;
+  rdfs:subClassOf co:Participant_group ;
+.
+co:Aged
+  rdf:type owl:Class ;
+  rdfs:label "Aged" ;
+  rdfs:subClassOf co:Senior_citizens ;
+.
+co:Asymptomatic_infected_people
+  rdf:type co:Domain-relevant_group ;
+  rdfs:label "Asymptomatic infected people" ;
+.
+co:Asymptomatic_people_exposed_to_respiratory_infections
+  rdf:type co:Domain-relevant_group ;
+  rdfs:label "Asymptomatic individuals exposed to other pathogens that can cause respiratory infections" ;
+.
+co:Attack_rate_segmentation
+  rdf:type owl:Class ;
+  rdfs:subClassOf co:Measure-Entity ;
+.
+co:Avoiding_social_gathering
+  rdf:type owl:Class ;
+  rdfs:label "Avoiding social gathering" ;
+  rdfs:subClassOf co:Personal_exposure_avoidance ;
+.
+co:Back-projection_method
+  rdf:type owl:Class ;
+  rdfs:label "Back-projection method" ;
+  rdfs:subClassOf co:Mathematical_modelling ;
+.
+co:Basic_reproduction_no
+  rdf:type co:Reproduction ;
+  rdfs:label "Basic reproduction no (BR0) in RO" ;
+.
+co:Becker2005
+  rdf:type co:Study ;
+  rdfs:label "Becker 2005" ;
+  co:cause-effect co:Becker2005-Cause-Effect1 ;
+  co:cause-effect co:Becker2005-Cause-Effect2 ;
+.
+co:Becker2005-Cause-Effect1
+  rdf:type co:Cause-Effect ;
+  rdfs:label "Becker2005" ;
+  co:cause co:Becker2005-Cause-Effect1-Cause1 ;
+  co:condition co:Becker2005-Cause-Effect1-Condition1 ;
+  co:condition co:Becker2005-Cause-Effect1-Condition2 ;
+  co:desc "Quarantine of households of a confirmed case is more efficient if transmission rate is high and time to diagnosis is long. It reduces the reproduction number below 1 if every case is diagnosed within 8.8 days." ;
+  co:effect co:Becker2005-Cause-Effect1-Effect1 ;
+.
+co:Becker2005-Cause-Effect1-Cause1
+  rdf:type co:Cause ;
+  rdfs:label "Qurantine of household of confirmed case" ;
+  co:type co:Qurantine_of_household_of_confirmed_case ;
+.
+co:Becker2005-Cause-Effect1-Condition1
+  rdf:type co:Cause ;
+  rdfs:label "Time to diagnosis is high" ;
+  co:measure co:Becker2005-Cause-Effect1-Condition1-Measure1 ;
+.
+co:Becker2005-Cause-Effect1-Condition1-Measure1
+  rdf:type co:Measure-Value_Range ;
+  qudt:unit <http://qudt.org/vocab/unit#Day> ;
+  rdfs:label "Becker2005" ;
+  co:measure-entity [
+      rdf:type co:Time_to_diagnosis ;
+    ] ;
+  co:numericValueMax "8.8"^^xsd:double ;
+.
+co:Becker2005-Cause-Effect1-Condition2
+  rdf:type co:Cause ;
+  rdfs:label "Becker2005" ;
+  co:measure co:Becker2005-Cause-Effect1-Condition2-Measure1 ;
+.
+co:Becker2005-Cause-Effect1-Condition2-Measure1
+  rdf:type co:Measure-Value_Qualitative ;
+  rdfs:label "Becker2005" ;
+  co:measure-entity [
+      rdf:type co:Transmission ;
+    ] ;
+  co:qualitativeValue co:High ;
+.
+co:Becker2005-Cause-Effect1-Effect1
+  rdf:type co:Effect ;
+  rdfs:label "Becker2005-Cause-Effect1-Effect1" ;
+  co:desc "reduces the reproduction number below 1" ;
+  co:measure co:Becker2005-Cause-Effect1-Effect1-Measure1 ;
+  co:type co:Decrease ;
+.
+co:Becker2005-Cause-Effect1-Effect1-Measure1
+  rdf:type co:Measure-Value_Range ;
+  rdfs:label "Becker 2005" ;
+  co:desc "reproduction number below 1" ;
+  co:measure-entity co:Basic_reproduction_no ;
+  co:numericValueMax "1"^^xsd:double ;
+.
+co:Becker2005-Cause-Effect2
+  rdf:type co:Cause-Effect ;
+  rdfs:label "Becker 2005" ;
+  co:cause co:Becker2005-Cause-Effect2-Cause1 ;
+  co:effect co:Becker2005-Cause-Effect2-Effect2 ;
+.
+co:Becker2005-Cause-Effect2-Cause1
+  rdf:type co:Cause ;
+  rdfs:label "Quarantine combined with other measures(school closures, travel restrictions, mass gathering cancellation) " ;
+  co:type co:Quarantine_plus_other_measures ;
+.
+co:Becker2005-Cause-Effect2-Effect2
+  rdf:type co:Effect ;
+  rdfs:label "Becker 2005" ;
+  co:comparison_case [
+      rdf:type co:No_intervention ;
+      co:measure co:Becker2005-Measure3 ;
+    ] ;
+  co:measure co:Becker2005-Cause-Effect2-Effect2-Measure1 ;
+  co:type co:Decrease ;
+.
+co:Becker2005-Cause-Effect2-Effect2-Measure1
+  rdf:type co:Measure-Value_Range ;
+  rdfs:label "Becker 2005" ;
+  co:measure-entity co:Basic_reproduction_no ;
+  co:numericValueMax "1"^^xsd:double ;
+.
+co:Becker2005-Measure3
+  rdf:type co:Measure-Value ;
+  qudt:numericValue "6"^^xsd:double ;
+  rdfs:label "Becker 2005" ;
+  co:measure-entity co:Basic_reproduction_no ;
+.
+co:Beijing
+  rdf:type co:City ;
+.
+co:Better
+  rdf:type co:Qualitative_value ;
+  rdfs:label "Better" ;
+.
+co:COVID-19
+  rdf:type co:Event ;
+  rdfs:label "COVID-19" ;
+.
+co:Cancellation_of_mass_gathering
+  rdf:type owl:Class ;
+  rdfs:label "Cancellation of mass gathering" ;
+  rdfs:subClassOf co:Intervention ;
+.
+co:Case_control_study
+  rdf:type owl:Class ;
+  rdfs:label "Case control study" ;
+  rdfs:subClassOf co:Study_method ;
+.
+co:Case_isolation
+  rdf:type owl:Class ;
+  rdfs:label "Case isolation" ;
+  rdfs:subClassOf co:Intervention ;
+.
+co:Case_report
+  rdf:type owl:Class ;
+  rdfs:label "Case report" ;
+  rdfs:subClassOf co:Study_method ;
+.
+co:Case_series
+  rdf:type owl:Class ;
+  rdfs:label "Case series" ;
+  rdfs:subClassOf co:Study_method ;
+.
+co:Cause
+  rdf:type owl:Class ;
+  rdfs:label "Cause information" ;
+  rdfs:subClassOf co:Cause-Effect ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom co:Cause-Type ;
+      owl:onProperty co:type ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty co:type ;
+    ] ;
+.
+co:Cause-Effect
+  rdf:type owl:Class ;
+  rdfs:label "Cause & Effect" ;
+  rdfs:subClassOf owl:Thing ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom co:Cause ;
+      owl:onProperty co:cause ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom co:Effect ;
+      owl:onProperty co:effect ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty co:cause ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty co:effect ;
+    ] ;
+.
+co:Cause-Reduction_in_contact_rate
+  rdf:type co:Cause ;
+  co:cause co:Cause-Reduction_in_contact_rate ;
+  co:measure-entity co:Confirmed_infected_cases_count ;
+  co:type co:Reduction_in_contact_rate ;
+.
+co:Cause-Type
+  rdf:type owl:Class ;
+  rdfs:label "Cause type" ;
+  rdfs:subClassOf owl:Thing ;
+.
+co:Cause_Effect_1_cochrane_rapid_review_Effect_2
+  rdf:type co:Effect ;
+  co:measure co:Summary-Cause-Effect1-Effect2-Measure1 ;
+.
+co:Cause_Effect_1_cochrane_rapid_review_Effect_3
+  rdf:type co:Effect ;
+  co:measure co:Summary-Cause-Effect3_Measure_1 ;
+  co:type co:Decrease ;
+.
+co:Cause_Effect_1_cochrane_rapid_review_Effect_4
+  rdf:type co:Effect ;
+  co:measure co:Summary-Cause-Effect4_Measure_1 ;
+  co:type co:Decrease ;
+.
+co:Children
+  rdf:type co:Domain-relevant_group ;
+.
+co:China
+  rdf:type co:Country ;
+.
+co:City
+  rdf:type owl:Class ;
+  rdfs:label "City" ;
+  rdfs:subClassOf co:Geographic_location ;
+.
+co:Cochrane_rapid_review
+  rdf:type co:Rapid_review ;
+  co:cause-effect co:Summary-Cause-Effect1 ;
+.
+co:Cohort_study
+  rdf:type owl:Class ;
+  rdfs:label "Cohort study" ;
+  rdfs:subClassOf co:Study_method ;
+.
+co:Community_quarantine
+  rdf:type owl:Class ;
+  rdfs:label "School closure" ;
+  rdfs:subClassOf co:School_measure ;
+.
+co:Comparison
+  rdf:type owl:Class ;
+  rdfs:label "Comparison information" ;
+  rdfs:subClassOf owl:Thing ;
+.
+co:Confirmed_infected_cases_count
+  rdf:type co:Incidence ;
+.
+co:Contact_rate
+  rdf:type owl:Class ;
+  rdfs:subClassOf co:Measure-Entity ;
+.
+co:Contact_tracing
+  rdf:type owl:Class ;
+  rdfs:label "Contact tracing" ;
+  rdfs:subClassOf co:Intervention ;
+.
+co:Contacts_of_confirmed_or_suspected_case
+  rdf:type co:Domain-relevant_group ;
+  rdfs:label "contacts of a confirmed or suspected case" ;
+.
+co:Cost_effectiveness
+  rdf:type owl:Class ;
+  rdfs:label "Cost effectiveness" ;
+  rdfs:subClassOf co:Resource_used ;
+.
+co:Costs_Incurred
+  rdf:type co:Resource_used ;
+.
+co:Country
+  rdf:type owl:Class ;
+  rdfs:label "Country" ;
+  rdfs:subClassOf co:Geographic_location ;
+.
+co:Critical_care_beds_and_resources
+  rdf:type co:Hospital ;
+.
+co:Cruise_ship
+  rdf:type owl:Class ;
+  rdfs:label "Cruise ship" ;
+  rdfs:subClassOf co:Location-Type ;
+.
+co:Data_analysis
+  rdf:type co:Study_method ;
+.
+co:Decrease
+  rdf:type co:Effect-Type ;
+  rdfs:label "Decrease" ;
+.
+co:Deterministic_model
+  rdf:type owl:Class ;
+  rdfs:label "Deterministic_model" ;
+  rdfs:subClassOf co:Mathematical_modelling ;
+.
+co:Disinfection_of_infected_area
+  rdf:type owl:Class ;
+  rdfs:label "Disinfection of infected area" ;
+  rdfs:subClassOf co:Intervention ;
+.
+co:Domain-relevant_group
+  rdf:type owl:Class ;
+  rdfs:label "Participant type" ;
+  rdfs:subClassOf co:Participant_group ;
+.
+co:Effect
+  rdf:type owl:Class ;
+  rdfs:label "Effect information" ;
+  rdfs:subClassOf owl:Thing ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom co:Effect-Type ;
+      owl:onProperty co:type ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty co:type ;
+    ] ;
+.
+co:Effect-Type
+  rdf:type owl:Class ;
+  rdfs:label "Effect type" ;
+  rdfs:subClassOf owl:Thing ;
+.
+co:Effective
+  rdf:type co:Qualitative_value ;
+  rdfs:label "Effective" ;
+.
+co:Event
+  rdf:type owl:Class ;
+  rdfs:label "Event" ;
+  rdfs:subClassOf owl:Thing ;
+  co:event_studied co:SARS ;
+.
+co:Exit_screening
+  rdf:type owl:Class ;
+  rdfs:label "Exit screening" ;
+  rdfs:subClassOf co:Intervention ;
+.
+co:Face_mask_wearing
+  rdf:type owl:Class ;
+  rdfs:label "Wear face mask" ;
+  rdfs:subClassOf co:Personal_exposure_avoidance ;
+.
+co:Factor
+  rdf:type owl:Class ;
+  rdfs:label "Factor or Independent variable" ;
+  rdfs:subClassOf co:Cause-Type ;
+.
+co:Fang2020-Cause-Effect1
+  rdf:type co:Cause-Effect ;
+  rdfs:label "Fang2020 Cause and Effect" ;
+  co:cause co:Fang2020-Cause-Effect1-Cause1 ;
+  co:effect co:Fang2020-Cause-Effect1-Effect1 ;
+  co:effect co:Fang2020-Cause-Effect1-Effect2 ;
+.
+co:Fang2020-Cause-Effect1-Cause1
+  rdf:type co:Cause ;
+  rdfs:label "Quarantine combined with other measures(school closures, travel restrictions, mass gathering cancellation) " ;
+  co:type co:Quarantine_plus_other_measures ;
+.
+co:Fang2020-Cause-Effect1-Condition1-Measure1
+  rdf:type co:Measure ;
+  co:measure-entity co:Basic_reproduction_no ;
+.
+co:Fang2020-Cause-Effect1-Condition1-Measure1-Entity1
+  rdf:type co:Measure-Entity ;
+.
+co:Fang2020-Cause-Effect1-Condition1-Measure1-Entity2
+  rdf:type co:Measure-Entity ;
+.
+co:Fang2020-Cause-Effect1-Condition1-Measure2
+  rdf:type co:Measure ;
+  co:measure-entity co:Transmission_rate ;
+.
+co:Fang2020-Cause-Effect1-Effect1
+  rdf:type co:Effect ;
+  co:measure co:Fang2020-Measure1 ;
+  co:type co:Decrease ;
+.
+co:Fang2020-Cause-Effect1-Effect2
+  rdf:type co:Effect ;
+  co:measure co:Fang2020-Measure2 ;
+  co:type co:Decrease ;
+.
+co:Fang2020-Measure1
+  rdf:type co:Measure-Value ;
+  qudt:numericValue "26"^^xsd:double ;
+  qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  co:measure-entity co:Basic_reproduction_no ;
+.
+co:Fang2020-Measure2
+  rdf:type co:Measure-Value_Qualitative ;
+  rdfs:label "Fang2020-Measure2" ;
+  co:measure-entity [
+      rdf:type co:Transmission ;
+    ] ;
+  co:qualitativeValue co:Low ;
+.
+co:Geng2020-Cause-Effect1
+  rdf:type co:Cause-Effect ;
+  co:cause co:Geng2020-Cause-Effect1-Cause1 ;
+.
+co:Geng2020-Cause-Effect1-Cause1
+  rdf:type co:Cause ;
+  rdfs:label "Quarantine combined with other measures(Community Quarantine and School closure) " ;
+  co:type co:Quarantine_plus_other_measures ;
+.
+co:Geographic_location
+  rdf:type owl:Class ;
+  rdfs:label "Geographic location" ;
+  rdfs:subClassOf owl:Thing ;
+.
+co:Hand_hygiene
+  rdf:type owl:Class ;
+  rdfs:label "Hand hygiene, washing hands" ;
+  rdfs:subClassOf co:Personal_exposure_avoidance ;
+.
+co:High
+  rdf:type co:Qualitative_value ;
+  rdfs:label "High" ;
+.
+co:Hospital
+  rdf:type owl:Class ;
+  rdfs:label "Hospital" ;
+  rdfs:subClassOf co:Location-Type ;
+  rdfs:subClassOf co:Resource_used ;
+.
+co:Hotel
+  rdf:type owl:Class ;
+  rdfs:label "Hotel" ;
+  rdfs:subClassOf co:Location-Type ;
+.
+co:Hubei
+  rdf:type co:City ;
+.
+co:Improve
+  rdf:type co:Effect-Type ;
+  rdfs:label "Improve" ;
+.
+co:Incidence
+  rdf:type owl:Class ;
+  rdfs:label "Incidence (no. infected, incident cases)" ;
+  rdfs:subClassOf co:Measure-Entity ;
+.
+co:Incidence_1
+  rdf:type co:Incidence ;
+.
+co:Incoming_from_countries_with_a_declared_outbreak
+  rdf:type co:Domain-relevant_group ;
+  rdfs:label "Incoming from countries with a declared outbreak" ;
+.
+co:Incoming_from_other_countries
+  rdf:type co:Domain-relevant_group ;
+  rdfs:label "Incoming from other countries" ;
+.
+co:Increase
+  rdf:type co:Effect-Type ;
+  rdfs:label "Increase" ;
+.
+co:Ineffective
+  rdf:type co:Qualitative_value ;
+  rdfs:label "Ineffective" ;
+.
+co:Interrupted_time_series
+  rdf:type owl:Class ;
+  rdfs:label "Interrupted time series" ;
+  rdfs:subClassOf co:Time_series ;
+.
+co:Intervention
+  rdf:type owl:Class ;
+  rdfs:label "Intervention" ;
+  rdfs:subClassOf co:Cause-Type ;
+.
+co:Japan
+  rdf:type co:Country ;
+.
+co:Korea
+  rdf:type co:Country ;
+.
+co:Less
+  rdf:type co:More-Less-Of ;
+  rdfs:label "Less or lower" ;
+.
+co:Literature_review
+  rdf:type owl:Class ;
+  rdfs:label "Literature review" ;
+  rdfs:subClassOf co:Summary ;
+.
+co:Location-Type
+  rdf:type owl:Class ;
+  rdfs:label "Location (generic)" ;
+  rdfs:subClassOf owl:Thing ;
+.
+co:Low
+  rdf:type co:Qualitative_value ;
+  rdfs:label "Low" ;
+.
+co:MERS
+  rdf:type co:Event ;
+  rdfs:label "MERS" ;
+.
+co:Maintain
+  rdf:type co:Effect-Type ;
+  rdfs:label "Maintain" ;
+.
+co:Mandatory_quarantine
+  rdf:type owl:Class ;
+  rdfs:label "Mandatory quarantine" ;
+  rdfs:subClassOf co:Quarantine ;
+.
+co:Mathematical_modelling
+  rdf:type owl:Class ;
+  rdfs:label "Mathematical modelling" ;
+  rdfs:subClassOf co:Study_method ;
+.
+co:Measure
+  rdf:type owl:Class ;
+  rdfs:label "Measure" ;
+  rdfs:subClassOf owl:Thing ;
+.
+co:Measure-Entity
+  rdf:type owl:Class ;
+  rdfs:label "Entity measured" ;
+  rdfs:subClassOf owl:Thing ;
+.
+co:Measure-Relative_value
+  rdf:type owl:Class ;
+  rdfs:label "Measure - Relative value (e.g. 30% more, 10% less)" ;
+  rdfs:subClassOf co:Measure-Value ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom co:More-Less-Of ;
+      owl:onProperty co:qualitativeValue ;
+    ] ;
+.
+co:Measure-Value
+  rdf:type owl:Class ;
+  rdfs:label "Measure" ;
+  rdfs:subClassOf co:Measure ;
+.
+co:Measure-Value_1
+  rdf:type co:Measure-Value ;
+  qudt:numericValue "6.47"^^xsd:double ;
+.
+co:Measure-Value_Qualitative
+  rdf:type owl:Class ;
+  rdfs:label "Measure value - qualitative" ;
+  rdfs:subClassOf co:Measure ;
+.
+co:Measure-Value_Range
+  rdf:type owl:Class ;
+  rdfs:label "Measure" ;
+  rdfs:subClassOf co:Measure ;
+  co:desc "range of values (min to max), also less than max, or greater than min" ;
+.
+co:Millions
+  rdf:type qudt:Unit ;
+.
+co:Model_of_disease_outbreak
+  rdf:type owl:Class ;
+  rdfs:label "Model of disease outbreak" ;
+  rdfs:subClassOf co:Mathematical_modelling ;
+.
+co:More
+  rdf:type co:More-Less-Of ;
+  rdfs:label "more or higher" ;
+.
+co:More-Less-Of
+  rdf:type owl:Class ;
+  rdfs:label "More or Less or Of (e.g. 30% Of X, 30% Less, 10 More)" ;
+  rdfs:subClassOf co:Qualitative_value ;
+.
+co:More_effective
+  rdf:type co:Qualitative_value ;
+  rdfs:label "More effective" ;
+.
+co:Mortality
+  rdf:type owl:Class ;
+  rdfs:label "Mortality (no. of deaths)" ;
+  rdfs:subClassOf co:Measure-Entity ;
+.
+co:No_effect
+  rdf:type co:Effect-Type ;
+  rdfs:label "No_effect" ;
+.
+co:No_intervention
+  rdf:type owl:Class ;
+  rdfs:label "Becker 2005" ;
+  rdfs:subClassOf co:Cause-Type ;
+.
+co:No_quarantine
+  rdf:type owl:Class ;
+  rdfs:label "No quarantine" ;
+  rdfs:subClassOf co:No_intervention ;
+.
+co:Non_household_relatives
+  rdf:type co:Domain-relevant_group ;
+.
+co:Number_of_days_in_quarantine
+  rdf:type co:Measure-Entity ;
+.
+co:Number_of_travellers
+  rdf:type co:Measure-Entity ;
+.
+co:Of
+  rdf:type co:More-Less-Of ;
+  rdfs:label "Of (e.g. 30% of X)" ;
+.
+co:Oher_house_members
+  rdf:type co:Domain-relevant_group ;
+.
+co:Online_teaching
+  rdf:type owl:Class ;
+  rdfs:label "Online teaching" ;
+  rdfs:subClassOf co:Intervention ;
+.
+co:Participant_group
+  rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+.
+co:Peak_number_of_cases
+  rdf:type owl:Class ;
+  rdfs:subClassOf co:Incidence ;
+.
+co:People_in_areas_with_high_transmission_rates
+  rdf:type co:Domain-relevant_group ;
+  rdfs:label "People who live in areas with high transmission rates" ;
+.
+co:People_safety
+  rdf:type owl:Class ;
+  rdfs:label "People Safety - Mitigate Transmission" ;
+  rdfs:subClassOf co:Measure-Entity ;
+.
+co:Personal_exposure_avoidance
+  rdf:type owl:Class ;
+  rdfs:label "Exposure avoidance" ;
+  rdfs:subClassOf co:Intervention ;
+.
+co:Personal_protective_equipment
+  rdf:type owl:Class ;
+  rdfs:label "Use of personal protective equipment" ;
+  rdfs:subClassOf co:Intervention ;
+.
+co:Private_residence
+  rdf:type owl:Class ;
+  rdfs:label "Private residence" ;
+  rdfs:subClassOf co:Location-Type ;
+.
+co:Probabilistic_model
+  rdf:type owl:Class ;
+  rdfs:label "Probabilistic model" ;
+  rdfs:subClassOf co:Mathematical_modelling ;
+.
+co:Prospective_cohort_study
+  rdf:type owl:Class ;
+  rdfs:label "Retrospective cohort study" ;
+  rdfs:subClassOf co:Cohort_study ;
+.
+co:Protective_equipment_in_hospital
+  rdf:type owl:Class ;
+  rdfs:label "Protective equipment in hospital" ;
+  rdfs:subClassOf co:Personal_protective_equipment ;
+.
+co:Public_transport_closure
+  rdf:type owl:Class ;
+  rdfs:label "Stop public transport" ;
+  rdfs:subClassOf co:Intervention ;
+.
+co:Public_venue_closure
+  rdf:type owl:Class ;
+  rdfs:label "Closure of public venues" ;
+  rdfs:subClassOf co:Intervention ;
+.
+co:Qualitative_value
+  rdf:type owl:Class ;
+  rdfs:label "Qualitative value" ;
+  rdfs:subClassOf owl:Thing ;
+.
+co:Quarantine
+  rdf:type owl:Class ;
+  rdfs:label "Quarantine" ;
+  rdfs:subClassOf co:Intervention ;
+.
+co:Quarantine-Exposed_people
+  rdf:type owl:Class ;
+  rdfs:label "Quarantine of people who were exposed to infected people" ;
+  rdfs:subClassOf co:Quarantine ;
+.
+co:Quarantine-Travellers
+  rdf:type owl:Class ;
+  rdfs:label "Quarantine of travellers" ;
+  rdfs:subClassOf co:Quarantine ;
+.
+co:Quarantine-Travellers_from_affected_geographic_areas
+  rdf:type owl:Class ;
+  rdfs:label "Quarantine of travellers from affected geographic areas" ;
+  rdfs:subClassOf co:Quarantine-Travellers ;
+.
+co:Quarantine_only
+  rdf:type co:Quarantine ;
+.
+co:Quarantine_plus_other_measures
+  rdf:type owl:Thing ;
+  rdf:type co:Contact_tracing ;
+  rdf:type co:Quarantine-Exposed_people ;
+  rdfs:label "Quarantine + other measures" ;
+  co:desc "Quarantine combined with other measures(school closures, travel restrictions, mass gathering cancellation) " ;
+.
+co:Qurantine_of_household_of_confirmed_case
+  rdf:type co:Quarantine-Exposed_people ;
+  rdfs:label "Qurantine of household of confirmed case" ;
+.
+co:Rapid_review
+  rdf:type owl:Class ;
+  rdfs:label "Rapid review" ;
+  rdfs:subClassOf co:Literature_review ;
+.
+co:Recovery_time
+  rdf:type owl:Class ;
+  rdfs:subClassOf co:Measure-Entity ;
+.
+co:Reducing_hand-to-face_contact
+  rdf:type owl:Class ;
+  rdfs:label "Reduce hand-to-face contact" ;
+  rdfs:subClassOf co:Personal_exposure_avoidance ;
+.
+co:Reduction_in_contact_rate
+  rdf:type owl:Class ;
+  rdf:type co:Factor ;
+  rdfs:label "Reduction in contact rate" ;
+  rdfs:subClassOf co:Intervention ;
+.
+co:Reproduction
+  rdf:type owl:Class ;
+  rdfs:subClassOf co:Transmission ;
+.
+co:Resource_used
+  rdf:type owl:Class ;
+  rdfs:label "Resource_used (including cost incurred)" ;
+  rdfs:subClassOf co:Measure-Entity ;
+.
+co:Retrospective_cohort_study
+  rdf:type owl:Class ;
+  rdfs:label "Retrospective cohort study" ;
+  rdfs:subClassOf co:Cohort_study ;
+.
+co:SARS
+  rdf:type co:Event ;
+  rdfs:label "SARS" ;
+.
+co:SEIR_model
+  rdf:type owl:Class ;
+  rdfs:label "Susceptible, Exposed, Infectious, Recovered model" ;
+  rdfs:subClassOf co:Mathematical_modelling ;
+.
+co:Same
+  rdf:type co:Qualitative_value ;
+  rdfs:label "Same or equal" ;
+.
+co:School_closure
+  rdf:type owl:Class ;
+  rdfs:label "School closure" ;
+  rdfs:subClassOf co:School_measure ;
+.
+co:School_measure
+  rdf:type owl:Class ;
+  rdfs:label "School measure" ;
+  rdfs:subClassOf co:Intervention ;
+.
+co:Senior_citizens
+  rdf:type owl:Class ;
+  rdfs:label "Senior_citizens" ;
+  rdfs:subClassOf co:Adults ;
+.
+co:Senior_members
+  rdf:type co:Domain-relevant_group ;
+.
+co:Significant
+  rdf:type co:Qualitative_value ;
+  rdfs:label "Significant" ;
+.
+co:Simulation_model
+  rdf:type co:Mathematical_modelling ;
+.
+co:Social_distancing
+  rdf:type owl:Class ;
+  rdfs:label "Social distancing" ;
+  rdfs:subClassOf co:Personal_exposure_avoidance ;
+.
+co:South_Korea
+  rdf:type co:Country ;
+.
+co:Spouses
+  rdf:type co:Domain-relevant_group ;
+.
+co:Stochastic_model
+  rdf:type owl:Class ;
+  rdfs:label "Stochastic model" ;
+  rdfs:subClassOf co:Mathematical_modelling ;
+.
+co:Study
+  rdf:type owl:Class ;
+  rdfs:label "Individual study - results" ;
+  rdfs:subClassOf owl:Thing ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty co:cause-effect ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty co:desc ;
+    ] ;
+.
+co:Study_method
+  rdf:type owl:Class ;
+  rdfs:label "Study method" ;
+  rdfs:subClassOf owl:Thing ;
+.
+co:Study_type-Num
+  rdf:type owl:Class ;
+  rdfs:label "Study type & number" ;
+  rdfs:subClassOf owl:Thing ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty co:type ;
+    ] ;
+.
+co:Study_type_count
+  rdf:type co:Study_type-Num ;
+  qudt:numericValue "55000"^^xsd:double ;
+  co:desc "The Number of people considered" ;
+.
+co:Summary
+  rdf:type owl:Class ;
+  rdfs:label "Summary results" ;
+  rdfs:subClassOf owl:Thing ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty co:desc ;
+    ] ;
+.
+co:Summary-Cause-Effect1
+  rdf:type co:Cause-Effect ;
+  co:cause co:Summary-Cause-Effect1-Cause1 ;
+  co:condition co:Summary-Cause-Effect1-Condition1 ;
+  co:condition co:Summary-Cause-Effect1-Condition2 ;
+  co:effect co:Summary-Cause-Effect1-Condition1-Effect1 ;
+  co:effect co:Summary-Cause-Effect1-Condition2-Effect1 ;
+  co:effect co:Summary-Cause-Effect1-Effect1 ;
+  co:effect co:Summary-Cause-Effect1-Effect2 ;
+  co:effect co:Summary-Cause-Effect1-Effect3 ;
+  co:effect co:Summary-Cause-Effect1-Effect4 ;
+  co:effect co:Summary-Cause-Effect1-Effect5 ;
+  co:effect co:Summary-Cause-Effect1-Effect6 ;
+  co:effect co:Summary-Cause-Effect1-Effect7 ;
+  co:effect co:Summary-Cause-Effect1-Effect8 ;
+  co:effect co:Summary-Cause-Effect1-Effect9 ;
+.
+co:Summary-Cause-Effect1-Cause1
+  rdf:type co:Cause ;
+  co:type co:Quarantine_only ;
+.
+co:Summary-Cause-Effect1-Cause2
+  rdf:type co:Cause ;
+  co:measure [
+      rdf:type co:Measure-Value ;
+      co:measure-entity co:Basic_reproduction_no ;
+    ] ;
+.
+co:Summary-Cause-Effect1-Condition1
+  rdf:type co:Cause ;
+  co:desc "They calculated that a 50% reduced contact rate (achieved by quarantine) would decrease the confirmed cases by 44%; reducing contacts by 90% would decrease the number of cases by 65%." ;
+  co:measure co:Summary-Cause-Effect1-Condition1-Measure1 ;
+.
+co:Summary-Cause-Effect1-Condition1-Effect1
+  rdf:type co:Effect ;
+  co:measure co:Summary-Cause-Effect1-Condition1-Effect1-Measure1 ;
+  co:type co:Decrease ;
+.
+co:Summary-Cause-Effect1-Condition1-Effect1-Measure1
+  rdf:type co:Measure-Value_Range ;
+  qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  co:measure-entity co:Confirmed_infected_cases_count ;
+  co:numericValueMax "65"^^xsd:double ;
+  co:numericValueMin "44"^^xsd:double ;
+.
+co:Summary-Cause-Effect1-Condition1-Measure1
+  rdf:type co:Measure-Value_Range ;
+  qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  co:measure-entity [
+      rdf:type co:Contact_rate ;
+    ] ;
+  co:numericValueMax "90"^^xsd:double ;
+  co:numericValueMin "50"^^xsd:double ;
+.
+co:Summary-Cause-Effect1-Condition2
+  rdf:type co:Cause ;
+  co:event_studied co:SARS ;
+  co:location_geo co:Taiwan ;
+  co:measure co:Summary-Cause-Effect1-Condition2-Measure1 ;
+  co:measure co:Summary-Cause-Effect1-Condition2-Measure2 ;
+.
+co:Summary-Cause-Effect1-Condition2-Effect1
+  rdf:type co:Effect ;
+  co:desc "Number of cases reported with quarantine was very less from 0 to 56 out of 95000" ;
+  co:event_studied co:SARS ;
+  co:measure co:Summary-Cause-Effect1-Condition2-Effect1-Measure1 ;
+.
+co:Summary-Cause-Effect1-Condition2-Effect1-Measure1
+  rdf:type co:Measure-Value_Range ;
+  co:measure-entity co:Confirmed_infected_cases_count ;
+  co:numericValueMax "56"^^xsd:double ;
+  co:numericValueMin "0"^^xsd:double ;
+.
+co:Summary-Cause-Effect1-Condition2-Measure1
+  rdf:type co:Measure-Value ;
+  qudt:numericValue "95000"^^xsd:double ;
+  co:measure-entity co:Number_of_travellers ;
+.
+co:Summary-Cause-Effect1-Condition2-Measure2
+  rdf:type co:Measure-Value_Range ;
+  qudt:unit <http://qudt.org/vocab/unit#Day> ;
+  co:measure-entity co:Number_of_days_in_quarantine ;
+  co:numericValueMax "14"^^xsd:double ;
+  co:numericValueMin "10"^^xsd:double ;
+.
+co:Summary-Cause-Effect1-Effect1
+  rdf:type co:Effect ;
+  co:desc "Modeling studies consistently reported a benefit of the simulated quarantine measures, for example, quarantine of people exposed to confirmed or suspected cases averted 44% to 81% incident cases. Studies on SARS and MERS were consistent with findings from the studies on COVID-19." ;
+  co:event_studied co:COVID-19 ;
+  co:event_studied co:MERS ;
+  co:event_studied co:SARS ;
+  co:measure co:Summary-Cause-Effect1-Effect1-Measure1 ;
+  co:study_method [
+      rdf:type co:Mathematical_modelling ;
+    ] ;
+  co:type co:Decrease ;
+.
+co:Summary-Cause-Effect1-Effect1-Measure1
+  rdf:type co:Measure-Value_Range ;
+  qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  co:measure-entity co:Confirmed_infected_cases_count ;
+  co:numericValueMax "81"^^xsd:double ;
+  co:numericValueMin "44"^^xsd:double ;
+.
+co:Summary-Cause-Effect1-Effect2
+  rdf:type co:Effect ;
+  co:desc "31% to 63% of deaths compared to no measures based on different scenarios" ;
+  co:event_studied co:COVID-19 ;
+  co:event_studied co:MERS ;
+  co:event_studied co:SARS ;
+  co:measure co:Summary-Cause-Effect1-Effect2-Measure1 ;
+  co:study_method [
+      rdf:type co:Mathematical_modelling ;
+    ] ;
+  co:type co:Decrease ;
+.
+co:Summary-Cause-Effect1-Effect2-Measure1
+  rdf:type co:Measure-Value_Range ;
+  qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  co:measure-entity [
+      rdf:type co:Mortality ;
+    ] ;
+  co:numericValueMax "63"^^xsd:double ;
+  co:numericValueMin "31"^^xsd:double ;
+.
+co:Summary-Cause-Effect1-Effect3
+  rdf:type co:Effect ;
+  co:measure co:Summary-Cause-Effect1-Effect3-Measure1 ;
+.
+co:Summary-Cause-Effect1-Effect3-Measure1
+  rdf:type co:Measure-Value_Qualitative ;
+  co:measure-entity [
+      rdf:type co:Cost_effectiveness ;
+    ] ;
+  co:qualitativeValue co:Less ;
+.
+co:Summary-Cause-Effect1-Effect4
+  rdf:type co:Effect ;
+  co:comparison_case [
+      rdf:type co:No_quarantine ;
+    ] ;
+  co:event_studied co:COVID-19 ;
+  co:location_geo co:China ;
+  co:location_geo co:Hubei ;
+  co:measure co:Summary-Cause-Effect1-Effect4-Measure1 ;
+  co:study_method [
+      rdf:type co:SEIR_model ;
+    ] ;
+  co:type co:Decrease ;
+.
+co:Summary-Cause-Effect1-Effect4-Measure1
+  rdf:type co:Measure-Value ;
+  qudt:numericValue "40"^^xsd:double ;
+  qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  rdfs:label "peak number of cases" ;
+  co:measure-entity [
+      rdf:type co:Peak_number_of_cases ;
+    ] ;
+.
+co:Summary-Cause-Effect1-Effect5
+  rdf:type co:Effect ;
+  co:desc "One retrospective analysis of the SARS outbreak in Taiwan showed that out of 55,632 individuals quarantined due to contact with confirmed or probable cases, only 24 (0.04%) developed confirmed SARS (Hsieh 2005)." ;
+  co:event_studied co:SARS ;
+  co:location_geo co:Taiwan ;
+  co:measure co:Summary-Cause-Effect1-Effect5-Measure1 ;
+  co:type co:Decrease ;
+.
+co:Summary-Cause-Effect1-Effect5-Measure1
+  rdf:type co:Measure-Value ;
+  qudt:numericValue "0.04"^^xsd:double ;
+  qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  co:measure-entity co:Confirmed_infected_cases_count ;
+.
+co:Summary-Cause-Effect1-Effect6
+  rdf:type co:Effect ;
+  co:desc "In Beijing, more than 30,000 close contacts were quarantined for 14 days. The majority were quarantined at home (60%), the rest at designated sites. In this cohort of quarantined individuals, the overall attack rate was 6.3%.The Split is explained." ;
+  co:event_studied co:SARS ;
+  co:location_geo co:Beijing ;
+  co:measure co:Summary-Cause-Effect1-Effect6-Measure1 ;
+  co:measure co:Summary-Cause-Effect1-Effect6-Measure2 ;
+  co:measure co:Summary-Cause-Effect1-Effect6-Measure3 ;
+  co:measure co:Summary-Cause-Effect1-Effect6-Measure4 ;
+  co:measure co:Summary-Cause-Effect1-Effect6-Measure5 ;
+  co:measure co:Summary-Cause-Effect1-Effect6-Measure6 ;
+  co:measure co:Summary-Cause-Effect1-Effect6-Measure7 ;
+  co:study_method co:Data_analysis ;
+  co:study_type-num 30000 ;
+.
+co:Summary-Cause-Effect1-Effect6-Measure1
+  rdf:type co:Measure-Value ;
+  qudt:numericValue "6.3"^^xsd:double ;
+  qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  co:measure-entity co:Transmission_rate ;
+.
+co:Summary-Cause-Effect1-Effect6-Measure2
+  rdf:type co:Measure-Value ;
+  qudt:numericValue "15.4"^^xsd:double ;
+  qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  co:measure-entity co:Transmission_rate ;
+  co:participant_group_type co:Spouses ;
+.
+co:Summary-Cause-Effect1-Effect6-Measure3
+  rdf:type co:Measure-Value ;
+  qudt:numericValue "8.8"^^xsd:double ;
+  qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  co:measure-entity co:Transmission_rate ;
+  co:participant_group_type co:Oher_house_members ;
+.
+co:Summary-Cause-Effect1-Effect6-Measure4
+  rdf:type co:Measure-Value ;
+  qudt:numericValue "11.6"^^xsd:double ;
+  qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  co:measure-entity co:Transmission_rate ;
+  co:participant_group_type co:Non_household_relatives ;
+.
+co:Summary-Cause-Effect1-Effect6-Measure5
+  rdf:type co:Measure-Value ;
+  qudt:numericValue "5.0"^^xsd:double ;
+  qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  co:measure-entity co:Transmission_rate ;
+  co:participant_group_type co:Children ;
+.
+co:Summary-Cause-Effect1-Effect6-Measure6
+  rdf:type co:Measure-Value ;
+  qudt:numericValue "27.6"^^xsd:double ;
+  qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  co:measure-entity co:Transmission_rate ;
+  co:participant_group_type co:Adult ;
+.
+co:Summary-Cause-Effect1-Effect6-Measure7
+  rdf:type co:Measure-Value ;
+  qudt:numericValue "0.36"^^xsd:double ;
+  qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  co:measure-entity co:Transmission_rate ;
+  co:participant_group_type co:Work_or_school_contacts ;
+.
+co:Summary-Cause-Effect1-Effect7
+  rdf:type co:Effect ;
+  co:event_studied co:SARS ;
+  co:location_geo co:Taiwan ;
+  co:measure co:Summary-Cause-Effect1-Effect7-Measure1 ;
+  co:measure co:Summary-Cause-Effect1-Effect7-Measure2 ;
+  co:measure co:Summary-Cause-Effect1-Effect7-Measure3 ;
+  co:measure co:Summary-Cause-Effect1-Effect7-Measure4 ;
+  co:study_type-num 55000 ;
+.
+co:Summary-Cause-Effect1-Effect7-Measure1
+  rdf:type co:Measure-Value ;
+  qudt:numericValue "2.7"^^xsd:double ;
+  co:conf_interval_95percent "1.2 to 5.9 aOR" ;
+  co:desc "Senior members greater than 60 years" ;
+  co:measure-entity co:Adjusted_Odds_Ratio ;
+  co:participant_group_type co:Senior_members ;
+.
+co:Summary-Cause-Effect1-Effect7-Measure2
+  rdf:type co:Measure-Value ;
+  qudt:numericValue "4.7"^^xsd:double ;
+  co:conf_interval_95percent "2.0 to 11.0, aOR" ;
+  co:desc "Non Household Relatives" ;
+  co:measure-entity co:Adjusted_Odds_Ratio ;
+  co:participant_group_type co:Non_household_relatives ;
+.
+co:Summary-Cause-Effect1-Effect7-Measure3
+  rdf:type co:Measure-Value ;
+  qudt:numericValue "17.5"^^xsd:double ;
+  co:conf_interval_95percent "6.9 to 44.1 aOR" ;
+  co:desc "Unprotected Health care workers" ;
+  co:measure-entity co:Adjusted_Odds_Ratio ;
+  co:participant_group_type co:Unprotected_healthcare_workers ;
+.
+co:Summary-Cause-Effect1-Effect7-Measure4
+  rdf:type co:Measure-Value ;
+  qudt:numericValue "1.0"^^xsd:double ;
+  co:desc "work or school contacts" ;
+  co:measure-entity co:Adjusted_Odds_Ratio ;
+  co:participant_group_type co:Work_or_school_contacts ;
+.
+co:Summary-Cause-Effect1-Effect8
+  rdf:type co:Effect ;
+  co:desc "None of the patients developed MERS symptoms, and no secondary transmission occurred." ;
+  co:event_studied co:MERS ;
+  co:location_geo co:Korea ;
+  co:measure co:Summary-Cause-Effect1-Effect8-Measure1 ;
+  co:participant_group_type co:haemodialysis_patients ;
+  co:study_method [
+      rdf:type co:Prospective_cohort_study ;
+    ] ;
+  co:study_type-num 116 ;
+.
+co:Summary-Cause-Effect1-Effect8-Measure1
+  rdf:type co:Measure-Value ;
+  qudt:numericValue "0"^^xsd:double ;
+  co:measure-entity co:Transmission_rate ;
+.
+co:Summary-Cause-Effect1-Effect9
+  rdf:type co:Effect ;
+  co:event_studied co:SARS ;
+  co:location_geo co:Taiwan ;
+  co:measure co:Summary-Cause-Effect1-Effect9-Measure1 ;
+  co:study_method [
+      rdf:type co:Back-projection_method ;
+    ] ;
+  co:type co:Decrease ;
+.
+co:Summary-Cause-Effect1-Effect9-Measure1
+  rdf:type co:Measure-Value_Qualitative ;
+  co:measure-entity co:Confirmed_infected_cases_count ;
+  co:qualitativeValue co:More_effective ;
+.
+co:Summary-Cause-Effect2
+  rdf:type co:Cause-Effect ;
+  co:cause co:Summary-Cause-Effect2-Cause1 ;
+  co:condition co:Summary-Cause-Effect2-Condition1 ;
+  co:effect co:Summary-Cause-Effect2-Condition1-Effect1 ;
+  co:effect co:Summary-Cause-Effect2-Condition1-Effect2 ;
+  co:effect co:Summary-Cause-Effect2-Effect1 ;
+  co:effect co:Summary-Cause-Effect2-Effect2 ;
+  co:effect co:Summary-Cause-Effect2-Effect3 ;
+  co:effect co:Summary-Cause-Effect2-Effect4 ;
+  co:effect co:Summary-Cause-Effect2-Effect5 ;
+  co:effect co:Summary-Cause-Effect2-Effect6 ;
+  co:effect co:Summary-Cause-Effect2-Effect7 ;
+  co:effect co:Summary-Cause-Effect2-Effect8 ;
+.
+co:Summary-Cause-Effect2-Cause1
+  rdf:type co:Cause ;
+  co:type co:Quarantine_plus_other_measures ;
+.
+co:Summary-Cause-Effect2-Condition1
+  rdf:type co:Cause ;
+  co:measure co:Summary-Cause-Effect2-Condition1-Measure1 ;
+.
+co:Summary-Cause-Effect2-Condition1-Effect1
+  rdf:type co:Effect ;
+  co:location_geo co:United_Kingdom ;
+  co:measure co:Summary-Cause-Effect2-Condition1-Effect1-Measure1 ;
+  co:participant_group_type co:Senior_members ;
+  co:study_method [
+      rdf:type co:Mathematical_modelling ;
+    ] ;
+  co:type co:Decrease ;
+.
+co:Summary-Cause-Effect2-Condition1-Effect1-Measure1
+  rdf:type co:Measure-Value ;
+  qudt:numericValue "49"^^xsd:double ;
+  qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  co:measure-entity [
+      rdf:type co:Mortality ;
+    ] ;
+.
+co:Summary-Cause-Effect2-Condition1-Effect2
+  rdf:type co:Effect ;
+  co:location_geo co:United_Kingdom ;
+  co:measure co:Summary-Cause-Effect2-Condition1-Effect2-Measure1 ;
+  co:participant_group_type co:Senior_members ;
+  co:type co:Decrease ;
+.
+co:Summary-Cause-Effect2-Condition1-Effect2-Measure1
+  rdf:type co:Measure-Value ;
+  qudt:numericValue "67"^^xsd:double ;
+  qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  co:measure-entity co:Critical_care_beds_and_resources ;
+.
+co:Summary-Cause-Effect2-Condition1-Measure1
+  rdf:type co:Measure-Value ;
+  qudt:numericValue "2.4"^^xsd:double ;
+  co:desc "Results are showed that with an assumed reproduction number of 2.4, a combination of case isolation and voluntary quarantine for three months and social distancing of people 70 years or older" ;
+  co:measure-entity co:Basic_reproduction_no ;
+.
+co:Summary-Cause-Effect2-Effect1
+  rdf:type co:Effect ;
+  co:measure co:Summary-Cause-Effect2-Measure1 ;
+.
+co:Summary-Cause-Effect2-Effect2
+  rdf:type co:Effect ;
+  co:desc "Isolation and quarantine of passengers that needed to stay in their cabins prevented 2307 (67%) cases, and lowered the basic reproduction number from 14.8 to 1.78." ;
+  co:location_geo co:Japan ;
+  co:location_obj [
+      rdf:type co:Cruise_ship ;
+    ] ;
+  co:measure co:Summary-Cause-Effect2-Effect2-Measure1 ;
+  co:measure co:Summary-Cause-Effect2-Effect2-Measure2 ;
+  co:study_method [
+      rdf:type co:Mathematical_modelling ;
+      co:location_obj [
+          rdf:type co:Cruise_ship ;
+        ] ;
+    ] ;
+  co:type co:Decrease ;
+.
+co:Summary-Cause-Effect2-Effect2-Measure1
+  rdf:type co:Measure-Value ;
+  qudt:numericValue "67"^^xsd:double ;
+  qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  co:measure-entity co:Confirmed_infected_cases_count ;
+.
+co:Summary-Cause-Effect2-Effect2-Measure2
+  rdf:type co:Measure-Value_Range ;
+  co:measure-entity co:Basic_reproduction_no ;
+  co:numericValueMax "1.78"^^xsd:double ;
+  co:numericValueMin "14.8"^^xsd:double ;
+.
+co:Summary-Cause-Effect2-Effect3
+  rdf:type co:Effect ;
+  co:desc "The combination of case isolation, household quarantine, social distancing of the entire population, and school and university closures would achieve the greatest effect (data in the pre-publication manuscript not plausible) and could reduce the reproduction number close to 1." ;
+  co:measure co:Summary-Cause-Effect2-Effect3-Measure1 ;
+.
+co:Summary-Cause-Effect2-Effect3-Measure1
+  rdf:type co:Measure-Value ;
+  qudt:numericValue "1.0"^^xsd:double ;
+  co:measure-entity co:Basic_reproduction_no ;
+.
+co:Summary-Cause-Effect2-Effect4
+  rdf:type co:Effect ;
+  co:comparison_case [
+      rdf:type co:No_quarantine ;
+    ] ;
+  co:desc "By implementing (quarantine with) prevention and control measures that are able to reduce the transmission rate by 90% or 99% the number of COVID-19 cases would be only a fraction, at 0.5% respectively" ;
+  co:event_studied co:COVID-19 ;
+  co:measure co:Summary-Cause-Effect2-Effect4-Measure1 ;
+  co:measure co:Summary-Cause-Effect2-Effect4-Measure2 ;
+.
+co:Summary-Cause-Effect2-Effect4-Measure1
+  rdf:type co:Measure-Value_Range ;
+  qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  co:measure-entity co:Transmission_rate ;
+  co:numericValueMax "10"^^xsd:double ;
+  co:numericValueMin "1"^^xsd:double ;
+.
+co:Summary-Cause-Effect2-Effect4-Measure2
+  rdf:type co:Measure-Value ;
+  qudt:numericValue "0.5"^^xsd:double ;
+  qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  co:measure-entity co:Confirmed_infected_cases_count ;
+.
+co:Summary-Cause-Effect2-Effect5
+  rdf:type co:Effect ;
+  co:desc "With prevention and control measures such as isolation, quarantine, and travel restrictions in place, not only could the number of cases be reduced but the duration of the outbreak could also be reduced (Zhao 2020a). " ;
+  co:measure co:Summary-Cause-Effect2-Effect5-Measure1 ;
+  co:measure co:Summary-Cause-Effect2-Effect5-Measure2 ;
+  co:type co:Decrease ;
+.
+co:Summary-Cause-Effect2-Effect5-Measure1
+  rdf:type co:Measure-Value_Qualitative ;
+  co:measure-entity co:Confirmed_infected_cases_count ;
+  co:qualitativeValue co:Low ;
+.
+co:Summary-Cause-Effect2-Effect5-Measure2
+  rdf:type co:Measure-Value_Qualitative ;
+  co:measure-entity co:Total_Epidemic_Duration ;
+  co:qualitativeValue co:Low ;
+.
+co:Summary-Cause-Effect2-Effect6
+  rdf:type co:Effect ;
+  co:measure co:Summary-Cause-Effect2-Effect6-Measure1 ;
+.
+co:Summary-Cause-Effect2-Effect6-Measure1
+  rdf:type co:Measure-Value ;
+.
+co:Summary-Cause-Effect2-Effect7
+  rdf:type co:Effect ;
+  co:desc "The only identified study that specifically assessed the effects of community quarantine was based on data from Wuhan study reported that community quarantine and school closures reduced the peak of transmissions by 29.9% to 45.7% respectively (Geng 2020)" ;
+  co:location_geo co:Wuhan ;
+  co:measure co:Summary-Cause-Effect2-Effect7-Measure1 ;
+.
+co:Summary-Cause-Effect2-Effect7-Measure1
+  rdf:type co:Measure-Value_Range ;
+  qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  co:measure-entity [
+      rdf:type co:Peak_number_of_cases ;
+    ] ;
+  co:numericValueMax "45.7"^^xsd:double ;
+  co:numericValueMin "29.9"^^xsd:double ;
+.
+co:Summary-Cause-Effect2-Effect8
+  rdf:type co:Effect ;
+  co:desc "a combination of quarantine with other interventions is effective to reduce the transmission of MERS and SARS." ;
+  co:event_studied co:MERS ;
+  co:event_studied co:SARS ;
+  co:measure co:Summary-Cause-Effect2-Effect8-Measure1 ;
+  co:type co:Decrease ;
+.
+co:Summary-Cause-Effect2-Effect8-Measure1
+  rdf:type co:Measure-Value_Qualitative ;
+  co:measure-entity co:Time_from_symptom_onset_to_diagnosis ;
+  co:measure-entity co:Total_Epidemic_Duration ;
+  co:measure-entity co:Transmission_rate ;
+  co:qualitativeValue co:More_effective ;
+.
+co:Summary-Cause-Effect2-Measure1
+  rdf:type co:Measure-Value_Qualitative ;
+  co:measure-entity co:Confirmed_infected_cases_count ;
+  co:measure-entity co:Transmission_rate ;
+  co:measure-entity [
+      rdf:type co:Mortality ;
+    ] ;
+  co:qualitativeValue co:Less ;
+.
+co:Summary-Cause-Effect3
+  rdf:type co:Cause-Effect ;
+  co:cause co:Summary-Cause-Effect3-Cause1 ;
+  co:effect co:Summary-Cause-Effect3-Effect1 ;
+  co:effect co:Summary-Cause-Effect3-Effect2 ;
+  co:effect co:Summary-Cause-Effect3-Effect3 ;
+  co:effect co:Summary-Cause-Effect3-Effect4 ;
+  co:study_method [
+      rdf:type co:Mathematical_modelling ;
+    ] ;
+.
+co:Summary-Cause-Effect3-Cause1
+  rdf:type co:Cause ;
+  co:type [
+      rdf:type co:No_quarantine ;
+    ] ;
+.
+co:Summary-Cause-Effect3-Cause4
+  rdf:type co:Cause ;
+.
+co:Summary-Cause-Effect3-Effect1
+  rdf:type co:Effect ;
+  co:desc "They calculated a basic reproduction number (R0) of 6.47 and estimated that without action the number of confirmed cases in Wuhan would be at 7723 by the end of January 2020." ;
+  co:measure co:Summary-Cause-Effect3-Effect1-Measure1 ;
+  co:measure co:Summary-Cause-Effect3-Effect1-Measure2 ;
+  co:study_method [
+      rdf:type co:SEIR_model ;
+    ] ;
+  co:type co:Increase ;
+.
+co:Summary-Cause-Effect3-Effect1-Measure1
+  rdf:type co:Measure-Value ;
+  qudt:numericValue "6.47"^^xsd:double ;
+  co:measure-entity co:Basic_reproduction_no ;
+.
+co:Summary-Cause-Effect3-Effect1-Measure2
+  rdf:type co:Measure-Value ;
+  qudt:numericValue "7723"^^xsd:double ;
+  co:measure-entity co:Confirmed_infected_cases_count ;
+.
+co:Summary-Cause-Effect3-Effect2
+  rdf:type co:Effect ;
+  co:comparison_case co:Quarantine_plus_other_measures ;
+  co:desc "One study simulated the outbreak for South Korea and estimated that there would be nearly 5 million COVID-19 cases without any measures." ;
+  co:event_studied co:COVID-19 ;
+  co:location_geo co:South_Korea ;
+  co:measure co:Summary-Cause-Effect3-Effect2-Measure1 ;
+  co:study_method co:Simulation_model ;
+.
+co:Summary-Cause-Effect3-Effect2-Measure1
+  rdf:type co:Measure-Value ;
+  qudt:numericValue "5000000"^^xsd:double ;
+  co:measure-entity co:Confirmed_infected_cases_count ;
+.
+co:Summary-Cause-Effect3-Effect3
+  rdf:type co:Effect ;
+  co:comparison_case co:Quarantine_plus_other_measures ;
+  co:desc "without implementation of any measures, China would have had more than 800 million COVID-19 cases and an epidemic duration of 477 days" ;
+  co:event_studied co:COVID-19 ;
+  co:location_geo co:China ;
+  co:measure co:Summary-Cause-Effect3-Effect3-Measure1 ;
+  co:measure co:Summary-Cause-Effect3-Effect3-Measure2 ;
+  co:study_method [
+      rdf:type co:Mathematical_modelling ;
+    ] ;
+.
+co:Summary-Cause-Effect3-Effect3-Measure1
+  rdf:type co:Measure-Value ;
+  qudt:numericValue "800"^^xsd:double ;
+  qudt:unit co:Millions ;
+  co:measure-entity co:Confirmed_infected_cases_count ;
+.
+co:Summary-Cause-Effect3-Effect3-Measure2
+  rdf:type co:Measure-Value ;
+  qudt:numericValue "477"^^xsd:double ;
+  qudt:unit <http://qudt.org/vocab/unit#Day> ;
+  co:measure-entity co:Total_Epidemic_Duration ;
+.
+co:Summary-Cause-Effect3-Effect4
+  rdf:type co:Effect ;
+  co:comparison_case co:Quarantine_only ;
+  co:desc """Taiwanese government home-quarantined more than 95,000 travellers arriving at the borders from affected regions. Hsieh 2007 employed a susceptible-infective-recovered model with an estimated case fatality rate of 14.1%; the mean time of symptom onset to diagnosis were 1.20 days for the quarantined individuals and 2.89 days for those unquarantined. The results of the model showed that in the hypothetical scenario in which no one had been quarantined aQer arrival from a high-transmission region, 511 additional SARS cases with 70 additional deaths would
+have occurred in Taiwan.""" ;
+  co:event_studied co:SARS ;
+  co:location_geo co:Taiwan ;
+  co:measure co:Summary-Cause-Effect3-Effect4-Measure1 ;
+  co:measure co:Summary-Cause-Effect3-Effect4-Measure2 ;
+  co:measure co:Summary-Cause-Effect3-Effect4-Measure3 ;
+  co:measure co:Summary-Cause-Effect3-Effect4-Measure4 ;
+  co:study_type-num 95000 ;
+  co:type co:Increase ;
+.
+co:Summary-Cause-Effect3-Effect4-Measure1
+  rdf:type co:Measure-Value ;
+  qudt:numericValue "2.89"^^xsd:double ;
+  qudt:unit <http://qudt.org/vocab/unit#Day> ;
+  co:comparison_case co:Quarantine_only ;
+  co:desc "The time from symptom onset to diagnosis was statistically significantly shorter in quarantined than in nonquarantined people1.20 versus 2.89 days" ;
+  co:measure-entity co:Time_from_symptom_onset_to_diagnosis ;
+.
+co:Summary-Cause-Effect3-Effect4-Measure2
+  rdf:type co:Measure-Value ;
+  qudt:numericValue "14.1"^^xsd:double ;
+  qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  co:measure-entity [
+      rdf:type co:Mortality ;
+    ] ;
+.
+co:Summary-Cause-Effect3-Effect4-Measure3
+  rdf:type co:Measure-Value ;
+  qudt:numericValue "511"^^xsd:double ;
+  co:measure-entity co:Confirmed_infected_cases_count ;
+.
+co:Summary-Cause-Effect3-Effect4-Measure4
+  rdf:type co:Measure-Value ;
+  qudt:numericValue "70"^^xsd:double ;
+  co:measure-entity [
+      rdf:type co:Mortality ;
+    ] ;
+.
+co:Summary-Cause-Effect3_Measure_1
+  rdf:type co:Measure-Value_Qualitative ;
+  co:measure-entity [
+      rdf:type co:Transmission ;
+    ] ;
+  co:qualitativeValue co:Less ;
+.
+co:Summary-Cause-Effect4
+  rdf:type co:Cause-Effect ;
+  co:cause co:Summary-Cause-Effect1-Cause1 ;
+  co:effect co:Cause_Effect_1_cochrane_rapid_review_Effect_4 ;
+.
+co:Summary-Cause-Effect4_Measure_1
+  rdf:type co:Measure-Value_Qualitative ;
+  co:measure-entity co:Costs_Incurred ;
+  co:qualitativeValue co:Less ;
+.
+co:Summary-Cause-Effect5
+  rdf:type co:Cause-Effect ;
+  co:cause [
+      rdf:type co:No_quarantine ;
+      co:measure co:Measure-Value_1 ;
+    ] ;
+  co:effect co:Summary-Cause-Effect1-Effect1 ;
+.
+co:Susceptible-Infectious-Recovered_model
+  rdf:type owl:Class ;
+  rdfs:label "Susceptible, Infectious, Recovered model" ;
+  rdfs:subClassOf co:Mathematical_modelling ;
+.
+co:Symptomatic_infected_people
+  rdf:type co:Domain-relevant_group ;
+  rdfs:label "Symptomatic infected people" ;
+.
+co:Systematic_review
+  rdf:type owl:Class ;
+  rdfs:label "Systematic review" ;
+  rdfs:subClassOf co:Literature_review ;
+.
+co:Systematic_review_method
+  rdf:type owl:Class ;
+  rdfs:label "Systematic review method" ;
+  rdfs:subClassOf co:Study_method ;
+.
+co:Taiwan
+  rdf:type co:City ;
+.
+co:Time_from_symptom_onset_to_diagnosis
+  rdf:type co:Time_to_diagnosis ;
+.
+co:Time_series
+  rdf:type owl:Class ;
+  rdfs:label "Time series" ;
+  rdfs:subClassOf co:Study_method ;
+.
+co:Time_to_diagnosis
+  rdf:type owl:Class ;
+  rdfs:label "Time to diagnosis" ;
+  rdfs:subClassOf co:Measure-Entity ;
+.
+co:Total_Epidemic_Duration
+  rdf:type co:Measure-Entity ;
+.
+co:Transmission
+  rdf:type owl:Class ;
+  rdfs:label "Transmission (speed of spread, onward transmission)" ;
+  rdfs:subClassOf co:Measure-Entity ;
+.
+co:Transmission_model
+  rdf:type owl:Class ;
+  rdfs:label "Transmission model" ;
+  rdfs:subClassOf co:Mathematical_modelling ;
+.
+co:Transmission_rate
+  rdf:type co:Measure-Entity ;
+  rdfs:label "Rate of Transmission" ;
+.
+co:Travel_restriction
+  rdf:type owl:Class ;
+  rdfs:label "Travel restriction" ;
+  rdfs:subClassOf co:Intervention ;
+.
+co:Unit_1
+  rdf:type qudt:Unit ;
+.
+co:United_Kingdom
+  rdf:type co:Country ;
+.
+co:Unprotected_healthcare_workers
+  rdf:type co:Domain-relevant_group ;
+.
+co:Vaccination
+  rdf:type owl:Class ;
+  rdfs:label "Vaccination" ;
+  rdfs:subClassOf co:Intervention ;
+.
+co:Voluntary_quarantine
+  rdf:type owl:Class ;
+  rdfs:label "Voluntary quarantine" ;
+  rdfs:subClassOf co:Quarantine ;
+.
+co:Work_or_school_contacts
+  rdf:type co:Domain-relevant_group ;
+.
+co:Workplace_closure
+  rdf:type owl:Class ;
+  rdfs:label "Workplace closure, working from home" ;
+  rdfs:subClassOf co:Workplace_measure ;
+.
+co:Workplace_measure
+  rdf:type owl:Class ;
+  rdfs:label "Workplace measure" ;
+  rdfs:subClassOf co:Intervention ;
+.
+co:Worse
+  rdf:type co:Qualitative_value ;
+  rdfs:label "Worse" ;
+.
+co:Worsen
+  rdf:type co:Effect-Type ;
+  rdfs:label "Worsen" ;
+.
+co:Wuhan
+  rdf:type co:City ;
+.
+co:cause
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain co:Cause-Effect ;
+  rdfs:label "cause" ;
+  rdfs:range co:Cause ;
+.
+co:cause-effect
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          co:Summary
+          co:Study
+        ) ;
+    ] ;
+  rdfs:label "cause & effect" ;
+  rdfs:range co:Cause-Effect ;
+.
+co:citation
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          co:Summary
+          co:Study
+        ) ;
+    ] ;
+  rdfs:label "citation" ;
+  rdfs:range xsd:string ;
+.
+co:comparison_case
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain co:Effect ;
+  rdfs:label "Comparison or contrast case" ;
+  rdfs:range co:Cause-Type ;
+.
+co:condition
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain co:Cause-Effect ;
+  rdfs:label "condition or assumption" ;
+  rdfs:range co:Cause ;
+.
+co:conf_interval_95percent
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          co:Measure-Relative_value
+          co:Measure-Value
+        ) ;
+    ] ;
+  rdfs:label "95% confidence interval" ;
+  rdfs:range xsd:string ;
+.
+co:conf_interval_99percent
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          co:Measure-Relative_value
+          co:Measure-Value
+        ) ;
+    ] ;
+  rdfs:label "95% confidence interval" ;
+  rdfs:range xsd:decimal ;
+.
+co:desc
+  rdf:type owl:AnnotationProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          co:Summary
+          co:Study
+        ) ;
+    ] ;
+  rdfs:label "description" ;
+  rdfs:range xsd:string ;
+.
+co:effect
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain co:Cause-Effect ;
+  rdfs:label "effect" ;
+.
+co:event_studied
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain co:Study ;
+  rdfs:label "event studied" ;
+  rdfs:range co:Event ;
+.
+co:excluded_study
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          co:Summary
+          co:Cause-Effect
+        ) ;
+    ] ;
+  rdfs:label "excluded study" ;
+  rdfs:range co:Study ;
+.
+co:haemodialysis_patients
+  rdf:type co:Participant_group ;
+.
+co:id
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          co:Summary
+          co:Study
+        ) ;
+    ] ;
+  rdfs:label "ID no" ;
+  rdfs:range xsd:string ;
+.
+co:included_study
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          co:Summary
+          co:Cause-Effect
+        ) ;
+    ] ;
+  rdfs:label "included_study" ;
+  rdfs:range co:Study ;
+.
+co:intervening_factor
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain co:Cause-Effect ;
+  rdfs:label "intervening factor/variable" ;
+.
+co:key_cause-effect
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "Key result (high-level summary)" ;
+  rdfs:subPropertyOf co:cause-effect ;
+.
+co:location
+  rdf:type rdf:Property ;
+  rdfs:label "location (prefer subproperty)" ;
+.
+co:location_desc
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          co:Summary
+          co:Study
+          co:Cause-Effect
+          co:Quarantine
+        ) ;
+    ] ;
+  rdfs:label "location (description)" ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf co:location ;
+.
+co:location_geo
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          co:Summary
+          co:Study
+        ) ;
+    ] ;
+  rdfs:label "geographic location" ;
+  rdfs:range co:Geographic_location ;
+  rdfs:subPropertyOf co:location_obj ;
+.
+co:location_obj
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "location (ObjectProperty)" ;
+  rdfs:range [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          co:Location-Type
+          co:Geographic_location
+        ) ;
+    ] ;
+  rdfs:subPropertyOf co:location ;
+.
+co:measure
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          co:Effect
+          co:Cause
+        ) ;
+    ] ;
+  rdfs:label "measure" ;
+  rdfs:range co:Measure ;
+.
+co:measure-entity
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain co:Measure ;
+  rdfs:label "Entity/property measured" ;
+  rdfs:range co:Measure-Entity ;
+.
+co:moderator_factor
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain co:Cause-Effect ;
+  rdfs:label "moderator factor/variable" ;
+  rdfs:range co:Cause ;
+.
+co:num_studies
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain co:Summary ;
+  rdfs:label "number of studies" ;
+  rdfs:range xsd:integer ;
+.
+co:numericValueMax
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          co:Measure-Value_Range
+          co:Measure-Relative_value
+        ) ;
+    ] ;
+  rdfs:label "Numeric value - range - max" ;
+  rdfs:range xsd:double ;
+  rdfs:subPropertyOf qudt:numericValue ;
+.
+co:numericValueMin
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          co:Measure-Value_Range
+          co:Measure-Relative_value
+        ) ;
+    ] ;
+  rdfs:label "Numeric value - range - min" ;
+  rdfs:range xsd:double ;
+  rdfs:subPropertyOf qudt:numericValue ;
+.
+co:objectives
+  rdf:type owl:AnnotationProperty ;
+  rdfs:label "objectives (text)" ;
+  rdfs:subPropertyOf co:desc ;
+.
+co:participant_exclusion_criterion
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          co:Study
+          co:Cause-Effect
+        ) ;
+    ] ;
+  rdfs:label "participant exclusion criterion" ;
+  rdfs:range co:Participant_group ;
+.
+co:participant_group_type
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          co:Study
+          co:Cause-Effect
+        ) ;
+    ] ;
+  rdfs:label "participant inclusion criterion" ;
+  rdfs:range co:Participant_group ;
+  rdfs:subPropertyOf co:type ;
+.
+co:participant_inclusion_criterion
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          co:Study
+          co:Cause-Effect
+        ) ;
+    ] ;
+  rdfs:label "participant inclusion criterion" ;
+  rdfs:range co:Participant_group ;
+.
+co:percentage_1
+  rdfs:comment "40%" ;
+.
+co:percentage_range_1_1
+  rdfs:comment "31-63%" ;
+.
+co:qualitativeValue
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          co:Measure-Value_Qualitative
+          co:Measure-Relative_value
+        ) ;
+    ] ;
+  rdfs:label "Qualitative value" ;
+  rdfs:range co:Qualitative_value ;
+.
+co:research_results
+  rdf:type owl:AnnotationProperty ;
+  rdfs:label "summary research results (text)" ;
+  rdfs:subPropertyOf co:desc ;
+.
+co:study_exclusion_criterion
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain co:Summary ;
+  rdfs:label "study exclusion criterion" ;
+  rdfs:range xsd:string ;
+.
+co:study_inclusion_criterion
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain co:Summary ;
+  rdfs:label "study inclusion criterion" ;
+  rdfs:range xsd:string ;
+.
+co:study_method
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain co:Study ;
+  rdfs:label "study method" ;
+  rdfs:range co:Study_method ;
+.
+co:study_method_desc
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain co:Study ;
+  rdfs:label "study method description" ;
+  rdfs:range xsd:string ;
+.
+co:study_type-num
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain co:Summary ;
+  rdfs:range xsd:integer ;
+  co:desc "number of people considered in study type" ;
+.
+co:type
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          co:Cause
+          co:Effect
+        ) ;
+    ] ;
+  rdfs:label "type" ;
+.
