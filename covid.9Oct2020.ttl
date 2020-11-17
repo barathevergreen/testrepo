@@ -48,6 +48,7 @@ co:Adjusted_odds_ratio
 .
 co:Adult
   rdf:type co:Domain-relevant_group ;
+  rdfs:label "Adults" ;
 .
 co:Adults
   rdf:type owl:Class ;
@@ -98,7 +99,7 @@ co:Becker2005
 .
 co:Becker2005-Cause-Effect1
   rdf:type co:Cause-Effect ;
-  rdfs:label "Becker2005" ;
+  rdfs:label "Becker2005 - Cause & Effect 1" ;
   co:cause co:Becker2005-Cause-Effect1-Cause1 ;
   co:condition co:Becker2005-Cause-Effect1-Condition1 ;
   co:condition co:Becker2005-Cause-Effect1-Condition2 ;
@@ -107,12 +108,12 @@ co:Becker2005-Cause-Effect1
 .
 co:Becker2005-Cause-Effect1-Cause1
   rdf:type co:Cause ;
-  rdfs:label "Qurantine of household of confirmed case" ;
+  rdfs:label "Becker Cause1: Qurantine - confirmed case household" ;
   co:type co:Qurantine_of_household_of_confirmed_case ;
 .
 co:Becker2005-Cause-Effect1-Condition1
   rdf:type co:Cause ;
-  rdfs:label "Time to diagnosis is high" ;
+  rdfs:label "Becker Condition1: When Time to diagnosis is high" ;
   co:measure co:Becker2005-Cause-Effect1-Condition1-Measure1 ;
 .
 co:Becker2005-Cause-Effect1-Condition1-Measure1
@@ -126,7 +127,7 @@ co:Becker2005-Cause-Effect1-Condition1-Measure1
 .
 co:Becker2005-Cause-Effect1-Condition2
   rdf:type co:Cause ;
-  rdfs:label "Becker2005" ;
+  rdfs:label "Becker Condition2: When Transmission rate high" ;
   co:measure co:Becker2005-Cause-Effect1-Condition2-Measure1 ;
 .
 co:Becker2005-Cause-Effect1-Condition2-Measure1
@@ -139,7 +140,7 @@ co:Becker2005-Cause-Effect1-Condition2-Measure1
 .
 co:Becker2005-Cause-Effect1-Effect1
   rdf:type co:Effect ;
-  rdfs:label "Becker2005-Cause-Effect1-Effect1" ;
+  rdfs:label "Becker Effect1: Reproduction Number decreased" ;
   co:desc "reduces the reproduction number below 1" ;
   co:measure co:Becker2005-Cause-Effect1-Effect1-Measure1 ;
   co:type co:Decrease ;
@@ -153,20 +154,21 @@ co:Becker2005-Cause-Effect1-Effect1-Measure1
 .
 co:Becker2005-Cause-Effect2
   rdf:type co:Cause-Effect ;
-  rdfs:label "Becker 2005" ;
+  rdfs:label "Becker2005 - Cause & Effect 2" ;
   co:cause co:Becker2005-Cause-Effect2-Cause1 ;
   co:effect co:Becker2005-Cause-Effect2-Effect2 ;
 .
 co:Becker2005-Cause-Effect2-Cause1
   rdf:type co:Cause ;
-  rdfs:label "Quarantine combined with other measures(school closures, travel restrictions, mass gathering cancellation) " ;
+  rdfs:label "Becker Cause2: Quarantine combined with other measures" ;
   co:type co:Quarantine_plus_other_measures ;
 .
 co:Becker2005-Cause-Effect2-Effect2
   rdf:type co:Effect ;
-  rdfs:label "Becker 2005" ;
+  rdfs:label "Becker Effect2: Transmission rate decreased" ;
   co:comparison_case [
       rdf:type co:No_intervention ;
+      rdfs:label "No quarantine measures" ;
       co:measure co:Becker2005-Measure3 ;
     ] ;
   co:measure co:Becker2005-Cause-Effect2-Effect2-Measure1 ;
@@ -186,6 +188,7 @@ co:Becker2005-Measure3
 .
 co:Beijing
   rdf:type co:City ;
+  rdfs:label "Beijinig" ;
 .
 co:Better
   rdf:type co:Qualitative_value ;
@@ -260,36 +263,18 @@ co:Cause-Effect
       owl:onProperty co:effect ;
     ] ;
 .
-co:Cause-Reduction_in_contact_rate
-  rdf:type co:Cause ;
-  co:cause co:Cause-Reduction_in_contact_rate ;
-  co:measure-entity co:Confirmed_infected_cases_count ;
-  co:type co:Reduction_in_contact_rate ;
-.
 co:Cause-Type
   rdf:type owl:Class ;
   rdfs:label "Cause type" ;
   rdfs:subClassOf owl:Thing ;
 .
-co:Cause_Effect_1_cochrane_rapid_review_Effect_2
-  rdf:type co:Effect ;
-  co:measure co:Summary-Cause-Effect1-Effect2-Measure1 ;
-.
-co:Cause_Effect_1_cochrane_rapid_review_Effect_3
-  rdf:type co:Effect ;
-  co:measure co:Summary-Cause-Effect3_Measure_1 ;
-  co:type co:Decrease ;
-.
-co:Cause_Effect_1_cochrane_rapid_review_Effect_4
-  rdf:type co:Effect ;
-  co:measure co:Summary-Cause-Effect4_Measure_1 ;
-  co:type co:Decrease ;
-.
 co:Children
   rdf:type co:Domain-relevant_group ;
+  rdfs:label "Children" ;
 .
 co:China
   rdf:type co:Country ;
+  rdfs:label "China" ;
 .
 co:City
   rdf:type owl:Class ;
@@ -298,6 +283,7 @@ co:City
 .
 co:Cochrane_rapid_review
   rdf:type co:Rapid_review ;
+  rdfs:label "Cochrane Rapid Review" ;
   co:cause-effect co:Summary-Cause-Effect1 ;
 .
 co:Cohort_study
@@ -346,6 +332,7 @@ co:Country
 .
 co:Critical_care_beds_and_resources
   rdf:type co:Hospital ;
+  rdfs:label "Hospital" ;
 .
 co:Cruise_ship
   rdf:type owl:Class ;
@@ -354,6 +341,7 @@ co:Cruise_ship
 .
 co:Data_analysis
   rdf:type co:Study_method ;
+  rdfs:label "Data analysis" ;
 .
 co:Decrease
   rdf:type co:Effect-Type ;
@@ -421,18 +409,19 @@ co:Factor
 .
 co:Fang2020-Cause-Effect1
   rdf:type co:Cause-Effect ;
-  rdfs:label "Fang2020 Cause and Effect" ;
+  rdfs:label "Fang2020 - Cause & Effect 1" ;
   co:cause co:Fang2020-Cause-Effect1-Cause1 ;
   co:effect co:Fang2020-Cause-Effect1-Effect1 ;
   co:effect co:Fang2020-Cause-Effect1-Effect2 ;
 .
 co:Fang2020-Cause-Effect1-Cause1
   rdf:type co:Cause ;
-  rdfs:label "Quarantine combined with other measures(school closures, travel restrictions, mass gathering cancellation) " ;
+  rdfs:label "Fang Cause1: Quarantine combined with other measures" ;
   co:type co:Quarantine_plus_other_measures ;
 .
 co:Fang2020-Cause-Effect1-Condition1-Measure1
   rdf:type co:Measure ;
+  rdfs:label "Fang2020" ;
   co:measure-entity co:Basic_reproduction_no ;
 .
 co:Fang2020-Cause-Effect1-Condition1-Measure1-Entity1
@@ -443,15 +432,18 @@ co:Fang2020-Cause-Effect1-Condition1-Measure1-Entity2
 .
 co:Fang2020-Cause-Effect1-Condition1-Measure2
   rdf:type co:Measure ;
+  rdfs:label "Fang2020" ;
   co:measure-entity co:Transmission_rate ;
 .
 co:Fang2020-Cause-Effect1-Effect1
   rdf:type co:Effect ;
+  rdfs:label "Fang Effect1: Reproduction Number decreased" ;
   co:measure co:Fang2020-Measure1 ;
   co:type co:Decrease ;
 .
 co:Fang2020-Cause-Effect1-Effect2
   rdf:type co:Effect ;
+  rdfs:label "Fang Effect2: Transmission rate decreased" ;
   co:measure co:Fang2020-Measure2 ;
   co:type co:Decrease ;
 .
@@ -459,11 +451,12 @@ co:Fang2020-Measure1
   rdf:type co:Measure-Value ;
   qudt:numericValue "26"^^xsd:double ;
   qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  rdfs:label "Fang2020" ;
   co:measure-entity co:Basic_reproduction_no ;
 .
 co:Fang2020-Measure2
   rdf:type co:Measure-Value_Qualitative ;
-  rdfs:label "Fang2020-Measure2" ;
+  rdfs:label "Fang2020" ;
   co:measure-entity [
       rdf:type co:Transmission ;
     ] ;
@@ -471,11 +464,12 @@ co:Fang2020-Measure2
 .
 co:Geng2020-Cause-Effect1
   rdf:type co:Cause-Effect ;
+  rdfs:label "Geng2020 - Cause & Effect 1" ;
   co:cause co:Geng2020-Cause-Effect1-Cause1 ;
 .
 co:Geng2020-Cause-Effect1-Cause1
   rdf:type co:Cause ;
-  rdfs:label "Quarantine combined with other measures(Community Quarantine and School closure) " ;
+  rdfs:label "Geng Cause1: Quarantine combined with other measures" ;
   co:type co:Quarantine_plus_other_measures ;
 .
 co:Geographic_location
@@ -505,6 +499,7 @@ co:Hotel
 .
 co:Hubei
   rdf:type co:City ;
+  rdfs:label "Hubei" ;
 .
 co:Improve
   rdf:type co:Effect-Type ;
@@ -546,9 +541,11 @@ co:Intervention
 .
 co:Japan
   rdf:type co:Country ;
+  rdfs:label "Japan" ;
 .
 co:Korea
   rdf:type co:Country ;
+  rdfs:label "Korea" ;
 .
 co:Less
   rdf:type co:More-Less-Of ;
@@ -611,10 +608,6 @@ co:Measure-Value
   rdfs:label "Measure" ;
   rdfs:subClassOf co:Measure ;
 .
-co:Measure-Value_1
-  rdf:type co:Measure-Value ;
-  qudt:numericValue "6.47"^^xsd:double ;
-.
 co:Measure-Value_Qualitative
   rdf:type owl:Class ;
   rdfs:label "Measure value - qualitative" ;
@@ -668,6 +661,7 @@ co:No_quarantine
 .
 co:Non_household_relatives
   rdf:type co:Domain-relevant_group ;
+  rdfs:label "Relatives" ;
 .
 co:Number_of_days_in_quarantine
   rdf:type co:Measure-Entity ;
@@ -681,6 +675,7 @@ co:Of
 .
 co:Oher_house_members
   rdf:type co:Domain-relevant_group ;
+  rdfs:label "Other members" ;
 .
 co:Online_teaching
   rdf:type owl:Class ;
@@ -771,17 +766,18 @@ co:Quarantine-Travellers_from_affected_geographic_areas
 .
 co:Quarantine_only
   rdf:type co:Quarantine ;
+  rdfs:label "Quarantine only" ;
 .
 co:Quarantine_plus_other_measures
   rdf:type owl:Thing ;
   rdf:type co:Contact_tracing ;
   rdf:type co:Quarantine-Exposed_people ;
-  rdfs:label "Quarantine + other measures" ;
+  rdfs:label "Quarantine combined with other measures" ;
   co:desc "Quarantine combined with other measures(school closures, travel restrictions, mass gathering cancellation) " ;
 .
 co:Qurantine_of_household_of_confirmed_case
   rdf:type co:Quarantine-Exposed_people ;
-  rdfs:label "Qurantine of household of confirmed case" ;
+  rdfs:label "Qurantine - confirmed case household" ;
 .
 co:Rapid_review
   rdf:type owl:Class ;
@@ -796,12 +792,6 @@ co:Reducing_hand-to-face_contact
   rdf:type owl:Class ;
   rdfs:label "Reduce hand-to-face contact" ;
   rdfs:subClassOf co:Personal_exposure_avoidance ;
-.
-co:Reduction_in_contact_rate
-  rdf:type owl:Class ;
-  rdf:type co:Factor ;
-  rdfs:label "Reduction in contact rate" ;
-  rdfs:subClassOf co:Intervention ;
 .
 co:Reproduction
   rdf:type owl:Class ;
@@ -847,6 +837,7 @@ co:Senior_citizens
 .
 co:Senior_members
   rdf:type co:Domain-relevant_group ;
+  rdfs:label "Seniors" ;
 .
 co:Significant
   rdf:type co:Qualitative_value ;
@@ -854,6 +845,7 @@ co:Significant
 .
 co:Simulation_model
   rdf:type co:Mathematical_modelling ;
+  rdfs:label "Mathematical modelling" ;
 .
 co:Social_distancing
   rdf:type owl:Class ;
@@ -862,9 +854,11 @@ co:Social_distancing
 .
 co:South_Korea
   rdf:type co:Country ;
+  rdfs:label "South Korea" ;
 .
 co:Spouses
   rdf:type co:Domain-relevant_group ;
+  rdfs:label "Spouses" ;
 .
 co:Stochastic_model
   rdf:type owl:Class ;
@@ -904,6 +898,7 @@ co:Study_type-Num
 co:Study_type_count
   rdf:type co:Study_type-Num ;
   qudt:numericValue "55000"^^xsd:double ;
+  rdfs:label "Study type - Numbers considered" ;
   co:desc "The Number of people considered" ;
 .
 co:Summary
@@ -918,6 +913,7 @@ co:Summary
 .
 co:Summary-Cause-Effect1
   rdf:type co:Cause-Effect ;
+  rdfs:label "Cochrane Summary - Cause & Effect 1" ;
   co:cause co:Summary-Cause-Effect1-Cause1 ;
   co:condition co:Summary-Cause-Effect1-Condition1 ;
   co:condition co:Summary-Cause-Effect1-Condition2 ;
@@ -935,28 +931,25 @@ co:Summary-Cause-Effect1
 .
 co:Summary-Cause-Effect1-Cause1
   rdf:type co:Cause ;
+  rdfs:label "Cochrane Cause1: Quarantine only" ;
   co:type co:Quarantine_only ;
-.
-co:Summary-Cause-Effect1-Cause2
-  rdf:type co:Cause ;
-  co:measure [
-      rdf:type co:Measure-Value ;
-      co:measure-entity co:Basic_reproduction_no ;
-    ] ;
 .
 co:Summary-Cause-Effect1-Condition1
   rdf:type co:Cause ;
+  rdfs:label "Cochrane Condition1: When contact rate from 50-90%" ;
   co:desc "They calculated that a 50% reduced contact rate (achieved by quarantine) would decrease the confirmed cases by 44%; reducing contacts by 90% would decrease the number of cases by 65%." ;
   co:measure co:Summary-Cause-Effect1-Condition1-Measure1 ;
 .
 co:Summary-Cause-Effect1-Condition1-Effect1
   rdf:type co:Effect ;
+  rdfs:label "Cochrane Condition1 Effect1: Infected cases decreased by 44-65%" ;
   co:measure co:Summary-Cause-Effect1-Condition1-Effect1-Measure1 ;
   co:type co:Decrease ;
 .
 co:Summary-Cause-Effect1-Condition1-Effect1-Measure1
   rdf:type co:Measure-Value_Range ;
   qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  rdfs:label "Cochrane" ;
   co:measure-entity co:Confirmed_infected_cases_count ;
   co:numericValueMax "65"^^xsd:double ;
   co:numericValueMin "44"^^xsd:double ;
@@ -964,6 +957,7 @@ co:Summary-Cause-Effect1-Condition1-Effect1-Measure1
 co:Summary-Cause-Effect1-Condition1-Measure1
   rdf:type co:Measure-Value_Range ;
   qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  rdfs:label "Cochrane" ;
   co:measure-entity [
       rdf:type co:Contact_rate ;
     ] ;
@@ -972,6 +966,7 @@ co:Summary-Cause-Effect1-Condition1-Measure1
 .
 co:Summary-Cause-Effect1-Condition2
   rdf:type co:Cause ;
+  rdfs:label "Cochrane Condition2: When quarantine days 10-14 among 95000 people" ;
   co:event_studied co:SARS ;
   co:location_geo co:Taiwan ;
   co:measure co:Summary-Cause-Effect1-Condition2-Measure1 ;
@@ -979,12 +974,14 @@ co:Summary-Cause-Effect1-Condition2
 .
 co:Summary-Cause-Effect1-Condition2-Effect1
   rdf:type co:Effect ;
+  rdfs:label "Cochrane Condition2 Effect1: Number of cases from 0-56 people only" ;
   co:desc "Number of cases reported with quarantine was very less from 0 to 56 out of 95000" ;
   co:event_studied co:SARS ;
   co:measure co:Summary-Cause-Effect1-Condition2-Effect1-Measure1 ;
 .
 co:Summary-Cause-Effect1-Condition2-Effect1-Measure1
   rdf:type co:Measure-Value_Range ;
+  rdfs:label "Cochrane" ;
   co:measure-entity co:Confirmed_infected_cases_count ;
   co:numericValueMax "56"^^xsd:double ;
   co:numericValueMin "0"^^xsd:double ;
@@ -992,17 +989,20 @@ co:Summary-Cause-Effect1-Condition2-Effect1-Measure1
 co:Summary-Cause-Effect1-Condition2-Measure1
   rdf:type co:Measure-Value ;
   qudt:numericValue "95000"^^xsd:double ;
+  rdfs:label "Cochrane" ;
   co:measure-entity co:Number_of_travellers ;
 .
 co:Summary-Cause-Effect1-Condition2-Measure2
   rdf:type co:Measure-Value_Range ;
   qudt:unit <http://qudt.org/vocab/unit#Day> ;
+  rdfs:label "Cochrane" ;
   co:measure-entity co:Number_of_days_in_quarantine ;
   co:numericValueMax "14"^^xsd:double ;
   co:numericValueMin "10"^^xsd:double ;
 .
 co:Summary-Cause-Effect1-Effect1
   rdf:type co:Effect ;
+  rdfs:label "Cochrane Cause1 Effect1: suspected cases averted 44% to 81% incident cases" ;
   co:desc "Modeling studies consistently reported a benefit of the simulated quarantine measures, for example, quarantine of people exposed to confirmed or suspected cases averted 44% to 81% incident cases. Studies on SARS and MERS were consistent with findings from the studies on COVID-19." ;
   co:event_studied co:COVID-19 ;
   co:event_studied co:MERS ;
@@ -1010,18 +1010,21 @@ co:Summary-Cause-Effect1-Effect1
   co:measure co:Summary-Cause-Effect1-Effect1-Measure1 ;
   co:study_method [
       rdf:type co:Mathematical_modelling ;
+      rdfs:label "Mathematical modelling" ;
     ] ;
   co:type co:Decrease ;
 .
 co:Summary-Cause-Effect1-Effect1-Measure1
   rdf:type co:Measure-Value_Range ;
   qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  rdfs:label "Cochrane" ;
   co:measure-entity co:Confirmed_infected_cases_count ;
   co:numericValueMax "81"^^xsd:double ;
   co:numericValueMin "44"^^xsd:double ;
 .
 co:Summary-Cause-Effect1-Effect2
   rdf:type co:Effect ;
+  rdfs:label "Cochrane Cause1 Effect2: 31% to 63% of deaths compared to no measures based on different scenarios" ;
   co:desc "31% to 63% of deaths compared to no measures based on different scenarios" ;
   co:event_studied co:COVID-19 ;
   co:event_studied co:MERS ;
@@ -1029,12 +1032,14 @@ co:Summary-Cause-Effect1-Effect2
   co:measure co:Summary-Cause-Effect1-Effect2-Measure1 ;
   co:study_method [
       rdf:type co:Mathematical_modelling ;
+      rdfs:label "Mathematical modelling" ;
     ] ;
   co:type co:Decrease ;
 .
 co:Summary-Cause-Effect1-Effect2-Measure1
   rdf:type co:Measure-Value_Range ;
   qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  rdfs:label "Cochrane" ;
   co:measure-entity [
       rdf:type co:Mortality ;
     ] ;
@@ -1043,10 +1048,12 @@ co:Summary-Cause-Effect1-Effect2-Measure1
 .
 co:Summary-Cause-Effect1-Effect3
   rdf:type co:Effect ;
+  rdfs:label "Cochrane Cause1 Effect3: Highly Cost Effective" ;
   co:measure co:Summary-Cause-Effect1-Effect3-Measure1 ;
 .
 co:Summary-Cause-Effect1-Effect3-Measure1
   rdf:type co:Measure-Value_Qualitative ;
+  rdfs:label "Cochrane" ;
   co:measure-entity [
       rdf:type co:Cost_effectiveness ;
     ] ;
@@ -1054,8 +1061,10 @@ co:Summary-Cause-Effect1-Effect3-Measure1
 .
 co:Summary-Cause-Effect1-Effect4
   rdf:type co:Effect ;
+  rdfs:label "Cochrane Cause1 Effect4: Peak number of cases decreased by 40%" ;
   co:comparison_case [
       rdf:type co:No_quarantine ;
+      rdfs:label "No quarantine measures" ;
     ] ;
   co:event_studied co:COVID-19 ;
   co:location_geo co:China ;
@@ -1063,6 +1072,7 @@ co:Summary-Cause-Effect1-Effect4
   co:measure co:Summary-Cause-Effect1-Effect4-Measure1 ;
   co:study_method [
       rdf:type co:SEIR_model ;
+      rdfs:label "SEIR model" ;
     ] ;
   co:type co:Decrease ;
 .
@@ -1070,13 +1080,14 @@ co:Summary-Cause-Effect1-Effect4-Measure1
   rdf:type co:Measure-Value ;
   qudt:numericValue "40"^^xsd:double ;
   qudt:unit <http://qudt.org/vocab/unit#Percent> ;
-  rdfs:label "peak number of cases" ;
+  rdfs:label "Cochrane" ;
   co:measure-entity [
       rdf:type co:Peak_number_of_cases ;
     ] ;
 .
 co:Summary-Cause-Effect1-Effect5
   rdf:type co:Effect ;
+  rdfs:label "Cochrane Cause1 Effect5: out of 55,632 individuals quarantined due to contact with confirmed or probable cases, only 24 (0.04%) developed confirmed SARS" ;
   co:desc "One retrospective analysis of the SARS outbreak in Taiwan showed that out of 55,632 individuals quarantined due to contact with confirmed or probable cases, only 24 (0.04%) developed confirmed SARS (Hsieh 2005)." ;
   co:event_studied co:SARS ;
   co:location_geo co:Taiwan ;
@@ -1087,10 +1098,12 @@ co:Summary-Cause-Effect1-Effect5-Measure1
   rdf:type co:Measure-Value ;
   qudt:numericValue "0.04"^^xsd:double ;
   qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  rdfs:label "Cochrane" ;
   co:measure-entity co:Confirmed_infected_cases_count ;
 .
 co:Summary-Cause-Effect1-Effect6
   rdf:type co:Effect ;
+  rdfs:label "Cochrane Cause1 Effect6: Attack rate reduced to 6.3%" ;
   co:desc "In Beijing, more than 30,000 close contacts were quarantined for 14 days. The majority were quarantined at home (60%), the rest at designated sites. In this cohort of quarantined individuals, the overall attack rate was 6.3%.The Split is explained." ;
   co:event_studied co:SARS ;
   co:location_geo co:Beijing ;
@@ -1108,12 +1121,14 @@ co:Summary-Cause-Effect1-Effect6-Measure1
   rdf:type co:Measure-Value ;
   qudt:numericValue "6.3"^^xsd:double ;
   qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  rdfs:label "Cochrane" ;
   co:measure-entity co:Transmission_rate ;
 .
 co:Summary-Cause-Effect1-Effect6-Measure2
   rdf:type co:Measure-Value ;
   qudt:numericValue "15.4"^^xsd:double ;
   qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  rdfs:label "Cochrane" ;
   co:measure-entity co:Transmission_rate ;
   co:participant_group_type co:Spouses ;
 .
@@ -1121,6 +1136,7 @@ co:Summary-Cause-Effect1-Effect6-Measure3
   rdf:type co:Measure-Value ;
   qudt:numericValue "8.8"^^xsd:double ;
   qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  rdfs:label "Cochrane" ;
   co:measure-entity co:Transmission_rate ;
   co:participant_group_type co:Oher_house_members ;
 .
@@ -1128,6 +1144,7 @@ co:Summary-Cause-Effect1-Effect6-Measure4
   rdf:type co:Measure-Value ;
   qudt:numericValue "11.6"^^xsd:double ;
   qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  rdfs:label "Cochrane" ;
   co:measure-entity co:Transmission_rate ;
   co:participant_group_type co:Non_household_relatives ;
 .
@@ -1135,6 +1152,7 @@ co:Summary-Cause-Effect1-Effect6-Measure5
   rdf:type co:Measure-Value ;
   qudt:numericValue "5.0"^^xsd:double ;
   qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  rdfs:label "Cochrane" ;
   co:measure-entity co:Transmission_rate ;
   co:participant_group_type co:Children ;
 .
@@ -1142,6 +1160,7 @@ co:Summary-Cause-Effect1-Effect6-Measure6
   rdf:type co:Measure-Value ;
   qudt:numericValue "27.6"^^xsd:double ;
   qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  rdfs:label "Cochrane" ;
   co:measure-entity co:Transmission_rate ;
   co:participant_group_type co:Adult ;
 .
@@ -1149,11 +1168,13 @@ co:Summary-Cause-Effect1-Effect6-Measure7
   rdf:type co:Measure-Value ;
   qudt:numericValue "0.36"^^xsd:double ;
   qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  rdfs:label "Cochrane" ;
   co:measure-entity co:Transmission_rate ;
   co:participant_group_type co:Work_or_school_contacts ;
 .
 co:Summary-Cause-Effect1-Effect7
   rdf:type co:Effect ;
+  rdfs:label "Cochrane Cause1 Effect7: Better Adjusted Odds Ratio metrics" ;
   co:event_studied co:SARS ;
   co:location_geo co:Taiwan ;
   co:measure co:Summary-Cause-Effect1-Effect7-Measure1 ;
@@ -1165,6 +1186,7 @@ co:Summary-Cause-Effect1-Effect7
 co:Summary-Cause-Effect1-Effect7-Measure1
   rdf:type co:Measure-Value ;
   qudt:numericValue "2.7"^^xsd:double ;
+  rdfs:label "Cochrane" ;
   co:conf_interval_95percent "1.2 to 5.9 aOR" ;
   co:desc "Senior members greater than 60 years" ;
   co:measure-entity co:Adjusted_Odds_Ratio ;
@@ -1173,6 +1195,7 @@ co:Summary-Cause-Effect1-Effect7-Measure1
 co:Summary-Cause-Effect1-Effect7-Measure2
   rdf:type co:Measure-Value ;
   qudt:numericValue "4.7"^^xsd:double ;
+  rdfs:label "Cochrane" ;
   co:conf_interval_95percent "2.0 to 11.0, aOR" ;
   co:desc "Non Household Relatives" ;
   co:measure-entity co:Adjusted_Odds_Ratio ;
@@ -1181,6 +1204,7 @@ co:Summary-Cause-Effect1-Effect7-Measure2
 co:Summary-Cause-Effect1-Effect7-Measure3
   rdf:type co:Measure-Value ;
   qudt:numericValue "17.5"^^xsd:double ;
+  rdfs:label "Cochrane" ;
   co:conf_interval_95percent "6.9 to 44.1 aOR" ;
   co:desc "Unprotected Health care workers" ;
   co:measure-entity co:Adjusted_Odds_Ratio ;
@@ -1189,12 +1213,14 @@ co:Summary-Cause-Effect1-Effect7-Measure3
 co:Summary-Cause-Effect1-Effect7-Measure4
   rdf:type co:Measure-Value ;
   qudt:numericValue "1.0"^^xsd:double ;
+  rdfs:label "Cochrane" ;
   co:desc "work or school contacts" ;
   co:measure-entity co:Adjusted_Odds_Ratio ;
   co:participant_group_type co:Work_or_school_contacts ;
 .
 co:Summary-Cause-Effect1-Effect8
   rdf:type co:Effect ;
+  rdfs:label "Cochrane Cause1 Effect8: Transmission rate 0" ;
   co:desc "None of the patients developed MERS symptoms, and no secondary transmission occurred." ;
   co:event_studied co:MERS ;
   co:location_geo co:Korea ;
@@ -1202,31 +1228,37 @@ co:Summary-Cause-Effect1-Effect8
   co:participant_group_type co:haemodialysis_patients ;
   co:study_method [
       rdf:type co:Prospective_cohort_study ;
+      rdfs:label "Prospective cohert study" ;
     ] ;
   co:study_type-num 116 ;
 .
 co:Summary-Cause-Effect1-Effect8-Measure1
   rdf:type co:Measure-Value ;
   qudt:numericValue "0"^^xsd:double ;
+  rdfs:label "Cochrane" ;
   co:measure-entity co:Transmission_rate ;
 .
 co:Summary-Cause-Effect1-Effect9
   rdf:type co:Effect ;
+  rdfs:label "Cochrane Cause1 Effect9: More effective with respect to infected cases count" ;
   co:event_studied co:SARS ;
   co:location_geo co:Taiwan ;
   co:measure co:Summary-Cause-Effect1-Effect9-Measure1 ;
   co:study_method [
       rdf:type co:Back-projection_method ;
+      rdfs:label "Back projection method" ;
     ] ;
   co:type co:Decrease ;
 .
 co:Summary-Cause-Effect1-Effect9-Measure1
   rdf:type co:Measure-Value_Qualitative ;
+  rdfs:label "Cochrane" ;
   co:measure-entity co:Confirmed_infected_cases_count ;
   co:qualitativeValue co:More_effective ;
 .
 co:Summary-Cause-Effect2
   rdf:type co:Cause-Effect ;
+  rdfs:label "Cochrane Summary - Cause & Effect 2" ;
   co:cause co:Summary-Cause-Effect2-Cause1 ;
   co:condition co:Summary-Cause-Effect2-Condition1 ;
   co:effect co:Summary-Cause-Effect2-Condition1-Effect1 ;
@@ -1242,19 +1274,23 @@ co:Summary-Cause-Effect2
 .
 co:Summary-Cause-Effect2-Cause1
   rdf:type co:Cause ;
+  rdfs:label "Cochrane Cause2: Quarantine combined with other measures" ;
   co:type co:Quarantine_plus_other_measures ;
 .
 co:Summary-Cause-Effect2-Condition1
   rdf:type co:Cause ;
+  rdfs:label "Cochrane Condition3: When Basic Reproduction Number = 2.4" ;
   co:measure co:Summary-Cause-Effect2-Condition1-Measure1 ;
 .
 co:Summary-Cause-Effect2-Condition1-Effect1
   rdf:type co:Effect ;
+  rdfs:label "Cochrane Condition3 Effect1: Mortality of Senior members decreased by 49%" ;
   co:location_geo co:United_Kingdom ;
   co:measure co:Summary-Cause-Effect2-Condition1-Effect1-Measure1 ;
   co:participant_group_type co:Senior_members ;
   co:study_method [
       rdf:type co:Mathematical_modelling ;
+      rdfs:label "Mathematical modelling" ;
     ] ;
   co:type co:Decrease ;
 .
@@ -1262,12 +1298,14 @@ co:Summary-Cause-Effect2-Condition1-Effect1-Measure1
   rdf:type co:Measure-Value ;
   qudt:numericValue "49"^^xsd:double ;
   qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  rdfs:label "Cochrane" ;
   co:measure-entity [
       rdf:type co:Mortality ;
     ] ;
 .
 co:Summary-Cause-Effect2-Condition1-Effect2
   rdf:type co:Effect ;
+  rdfs:label "Cochrane Condition3 Effect1: Critical care beds and resources decreased by 67%" ;
   co:location_geo co:United_Kingdom ;
   co:measure co:Summary-Cause-Effect2-Condition1-Effect2-Measure1 ;
   co:participant_group_type co:Senior_members ;
@@ -1277,31 +1315,38 @@ co:Summary-Cause-Effect2-Condition1-Effect2-Measure1
   rdf:type co:Measure-Value ;
   qudt:numericValue "67"^^xsd:double ;
   qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  rdfs:label "Cochrane" ;
   co:measure-entity co:Critical_care_beds_and_resources ;
 .
 co:Summary-Cause-Effect2-Condition1-Measure1
   rdf:type co:Measure-Value ;
   qudt:numericValue "2.4"^^xsd:double ;
+  rdfs:label "Cochrane" ;
   co:desc "Results are showed that with an assumed reproduction number of 2.4, a combination of case isolation and voluntary quarantine for three months and social distancing of people 70 years or older" ;
   co:measure-entity co:Basic_reproduction_no ;
 .
 co:Summary-Cause-Effect2-Effect1
   rdf:type co:Effect ;
+  rdfs:label "Cochrane Cause2 Effect1: Mortality, transmission, infected cases was lesser" ;
   co:measure co:Summary-Cause-Effect2-Measure1 ;
 .
 co:Summary-Cause-Effect2-Effect2
   rdf:type co:Effect ;
+  rdfs:label "Cochrane Cause2 Effect2: Infected cases reduced by 67%" ;
   co:desc "Isolation and quarantine of passengers that needed to stay in their cabins prevented 2307 (67%) cases, and lowered the basic reproduction number from 14.8 to 1.78." ;
   co:location_geo co:Japan ;
   co:location_obj [
       rdf:type co:Cruise_ship ;
+      rdfs:label "Cruise Ship" ;
     ] ;
   co:measure co:Summary-Cause-Effect2-Effect2-Measure1 ;
   co:measure co:Summary-Cause-Effect2-Effect2-Measure2 ;
   co:study_method [
       rdf:type co:Mathematical_modelling ;
+      rdfs:label "Mathematical modelling" ;
       co:location_obj [
           rdf:type co:Cruise_ship ;
+          rdfs:label "Cruise Ship" ;
         ] ;
     ] ;
   co:type co:Decrease ;
@@ -1310,28 +1355,34 @@ co:Summary-Cause-Effect2-Effect2-Measure1
   rdf:type co:Measure-Value ;
   qudt:numericValue "67"^^xsd:double ;
   qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  rdfs:label "Cochrane" ;
   co:measure-entity co:Confirmed_infected_cases_count ;
 .
 co:Summary-Cause-Effect2-Effect2-Measure2
   rdf:type co:Measure-Value_Range ;
+  rdfs:label "Cochrane" ;
   co:measure-entity co:Basic_reproduction_no ;
   co:numericValueMax "1.78"^^xsd:double ;
   co:numericValueMin "14.8"^^xsd:double ;
 .
 co:Summary-Cause-Effect2-Effect3
   rdf:type co:Effect ;
+  rdfs:label "Cochrane Cause2 Effect3: Reduce Basic Reproduction number close to 1.0" ;
   co:desc "The combination of case isolation, household quarantine, social distancing of the entire population, and school and university closures would achieve the greatest effect (data in the pre-publication manuscript not plausible) and could reduce the reproduction number close to 1." ;
   co:measure co:Summary-Cause-Effect2-Effect3-Measure1 ;
 .
 co:Summary-Cause-Effect2-Effect3-Measure1
   rdf:type co:Measure-Value ;
   qudt:numericValue "1.0"^^xsd:double ;
+  rdfs:label "Cochrane" ;
   co:measure-entity co:Basic_reproduction_no ;
 .
 co:Summary-Cause-Effect2-Effect4
   rdf:type co:Effect ;
+  rdfs:label "Cochrane Cause2 Effect4: Transmission reduced by 90-99%" ;
   co:comparison_case [
       rdf:type co:No_quarantine ;
+      rdfs:label "No quarantine measures" ;
     ] ;
   co:desc "By implementing (quarantine with) prevention and control measures that are able to reduce the transmission rate by 90% or 99% the number of COVID-19 cases would be only a fraction, at 0.5% respectively" ;
   co:event_studied co:COVID-19 ;
@@ -1341,6 +1392,7 @@ co:Summary-Cause-Effect2-Effect4
 co:Summary-Cause-Effect2-Effect4-Measure1
   rdf:type co:Measure-Value_Range ;
   qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  rdfs:label "Cochrane" ;
   co:measure-entity co:Transmission_rate ;
   co:numericValueMax "10"^^xsd:double ;
   co:numericValueMin "1"^^xsd:double ;
@@ -1349,10 +1401,12 @@ co:Summary-Cause-Effect2-Effect4-Measure2
   rdf:type co:Measure-Value ;
   qudt:numericValue "0.5"^^xsd:double ;
   qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  rdfs:label "Cochrane" ;
   co:measure-entity co:Confirmed_infected_cases_count ;
 .
 co:Summary-Cause-Effect2-Effect5
   rdf:type co:Effect ;
+  rdfs:label "Cochrane Cause2 Effect5: Total epidemic duration can be reduced" ;
   co:desc "With prevention and control measures such as isolation, quarantine, and travel restrictions in place, not only could the number of cases be reduced but the duration of the outbreak could also be reduced (Zhao 2020a). " ;
   co:measure co:Summary-Cause-Effect2-Effect5-Measure1 ;
   co:measure co:Summary-Cause-Effect2-Effect5-Measure2 ;
@@ -1360,23 +1414,28 @@ co:Summary-Cause-Effect2-Effect5
 .
 co:Summary-Cause-Effect2-Effect5-Measure1
   rdf:type co:Measure-Value_Qualitative ;
+  rdfs:label "Cochrane" ;
   co:measure-entity co:Confirmed_infected_cases_count ;
   co:qualitativeValue co:Low ;
 .
 co:Summary-Cause-Effect2-Effect5-Measure2
   rdf:type co:Measure-Value_Qualitative ;
+  rdfs:label "Cochrane" ;
   co:measure-entity co:Total_Epidemic_Duration ;
   co:qualitativeValue co:Low ;
 .
 co:Summary-Cause-Effect2-Effect6
   rdf:type co:Effect ;
+  rdfs:label "Cochrane Cause2 Effect6" ;
   co:measure co:Summary-Cause-Effect2-Effect6-Measure1 ;
 .
 co:Summary-Cause-Effect2-Effect6-Measure1
   rdf:type co:Measure-Value ;
+  rdfs:label "Cochrane" ;
 .
 co:Summary-Cause-Effect2-Effect7
   rdf:type co:Effect ;
+  rdfs:label "Cochrane Cause2 Effect7: Peak transmissions reduced by 29.9 - 45.7%" ;
   co:desc "The only identified study that specifically assessed the effects of community quarantine was based on data from Wuhan study reported that community quarantine and school closures reduced the peak of transmissions by 29.9% to 45.7% respectively (Geng 2020)" ;
   co:location_geo co:Wuhan ;
   co:measure co:Summary-Cause-Effect2-Effect7-Measure1 ;
@@ -1384,6 +1443,7 @@ co:Summary-Cause-Effect2-Effect7
 co:Summary-Cause-Effect2-Effect7-Measure1
   rdf:type co:Measure-Value_Range ;
   qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  rdfs:label "Cochrane" ;
   co:measure-entity [
       rdf:type co:Peak_number_of_cases ;
     ] ;
@@ -1392,6 +1452,7 @@ co:Summary-Cause-Effect2-Effect7-Measure1
 .
 co:Summary-Cause-Effect2-Effect8
   rdf:type co:Effect ;
+  rdfs:label "Cochrane Cause2 Effect8: Time from Onset to diagnosis, Transmission was prevented effective" ;
   co:desc "a combination of quarantine with other interventions is effective to reduce the transmission of MERS and SARS." ;
   co:event_studied co:MERS ;
   co:event_studied co:SARS ;
@@ -1400,6 +1461,7 @@ co:Summary-Cause-Effect2-Effect8
 .
 co:Summary-Cause-Effect2-Effect8-Measure1
   rdf:type co:Measure-Value_Qualitative ;
+  rdfs:label "Cochrane" ;
   co:measure-entity co:Time_from_symptom_onset_to_diagnosis ;
   co:measure-entity co:Total_Epidemic_Duration ;
   co:measure-entity co:Transmission_rate ;
@@ -1407,6 +1469,7 @@ co:Summary-Cause-Effect2-Effect8-Measure1
 .
 co:Summary-Cause-Effect2-Measure1
   rdf:type co:Measure-Value_Qualitative ;
+  rdfs:label "Cochrane" ;
   co:measure-entity co:Confirmed_infected_cases_count ;
   co:measure-entity co:Transmission_rate ;
   co:measure-entity [
@@ -1416,6 +1479,7 @@ co:Summary-Cause-Effect2-Measure1
 .
 co:Summary-Cause-Effect3
   rdf:type co:Cause-Effect ;
+  rdfs:label "Cochrane Summary - Cause & Effect 3" ;
   co:cause co:Summary-Cause-Effect3-Cause1 ;
   co:effect co:Summary-Cause-Effect3-Effect1 ;
   co:effect co:Summary-Cause-Effect3-Effect2 ;
@@ -1423,39 +1487,44 @@ co:Summary-Cause-Effect3
   co:effect co:Summary-Cause-Effect3-Effect4 ;
   co:study_method [
       rdf:type co:Mathematical_modelling ;
+      rdfs:label "Mathematical modelling" ;
     ] ;
 .
 co:Summary-Cause-Effect3-Cause1
   rdf:type co:Cause ;
+  rdfs:label "Cochrane Cause3: No quarantine measures" ;
   co:type [
       rdf:type co:No_quarantine ;
+      rdfs:label "No quarantine measures" ;
     ] ;
-.
-co:Summary-Cause-Effect3-Cause4
-  rdf:type co:Cause ;
 .
 co:Summary-Cause-Effect3-Effect1
   rdf:type co:Effect ;
+  rdfs:label "Cochrane Cause3 Effect1: Reproduction number and number of cases very high" ;
   co:desc "They calculated a basic reproduction number (R0) of 6.47 and estimated that without action the number of confirmed cases in Wuhan would be at 7723 by the end of January 2020." ;
   co:measure co:Summary-Cause-Effect3-Effect1-Measure1 ;
   co:measure co:Summary-Cause-Effect3-Effect1-Measure2 ;
   co:study_method [
       rdf:type co:SEIR_model ;
+      rdfs:label "SEIR model" ;
     ] ;
   co:type co:Increase ;
 .
 co:Summary-Cause-Effect3-Effect1-Measure1
   rdf:type co:Measure-Value ;
   qudt:numericValue "6.47"^^xsd:double ;
+  rdfs:label "Cochrane" ;
   co:measure-entity co:Basic_reproduction_no ;
 .
 co:Summary-Cause-Effect3-Effect1-Measure2
   rdf:type co:Measure-Value ;
   qudt:numericValue "7723"^^xsd:double ;
+  rdfs:label "Cochrane" ;
   co:measure-entity co:Confirmed_infected_cases_count ;
 .
 co:Summary-Cause-Effect3-Effect2
   rdf:type co:Effect ;
+  rdfs:label "Cochrane Cause3 Effect2: Confirmed infected counts of 5 Million" ;
   co:comparison_case co:Quarantine_plus_other_measures ;
   co:desc "One study simulated the outbreak for South Korea and estimated that there would be nearly 5 million COVID-19 cases without any measures." ;
   co:event_studied co:COVID-19 ;
@@ -1466,10 +1535,12 @@ co:Summary-Cause-Effect3-Effect2
 co:Summary-Cause-Effect3-Effect2-Measure1
   rdf:type co:Measure-Value ;
   qudt:numericValue "5000000"^^xsd:double ;
+  rdfs:label "Cochrane" ;
   co:measure-entity co:Confirmed_infected_cases_count ;
 .
 co:Summary-Cause-Effect3-Effect3
   rdf:type co:Effect ;
+  rdfs:label "Cochrane Cause3 Effect3: Epidemic Duration increase to 477 days" ;
   co:comparison_case co:Quarantine_plus_other_measures ;
   co:desc "without implementation of any measures, China would have had more than 800 million COVID-19 cases and an epidemic duration of 477 days" ;
   co:event_studied co:COVID-19 ;
@@ -1478,22 +1549,26 @@ co:Summary-Cause-Effect3-Effect3
   co:measure co:Summary-Cause-Effect3-Effect3-Measure2 ;
   co:study_method [
       rdf:type co:Mathematical_modelling ;
+      rdfs:label "Mathematical modelling" ;
     ] ;
 .
 co:Summary-Cause-Effect3-Effect3-Measure1
   rdf:type co:Measure-Value ;
   qudt:numericValue "800"^^xsd:double ;
   qudt:unit co:Millions ;
+  rdfs:label "Cochrane" ;
   co:measure-entity co:Confirmed_infected_cases_count ;
 .
 co:Summary-Cause-Effect3-Effect3-Measure2
   rdf:type co:Measure-Value ;
   qudt:numericValue "477"^^xsd:double ;
   qudt:unit <http://qudt.org/vocab/unit#Day> ;
+  rdfs:label "Cochrane" ;
   co:measure-entity co:Total_Epidemic_Duration ;
 .
 co:Summary-Cause-Effect3-Effect4
   rdf:type co:Effect ;
+  rdfs:label "Cochrane Cause3 Effect4: Diagnosis time, Mortality, Infected cases are high" ;
   co:comparison_case co:Quarantine_only ;
   co:desc """Taiwanese government home-quarantined more than 95,000 travellers arriving at the borders from affected regions. Hsieh 2007 employed a susceptible-infective-recovered model with an estimated case fatality rate of 14.1%; the mean time of symptom onset to diagnosis were 1.20 days for the quarantined individuals and 2.89 days for those unquarantined. The results of the model showed that in the hypothetical scenario in which no one had been quarantined aQer arrival from a high-transmission region, 511 additional SARS cases with 70 additional deaths would
 have occurred in Taiwan.""" ;
@@ -1510,6 +1585,7 @@ co:Summary-Cause-Effect3-Effect4-Measure1
   rdf:type co:Measure-Value ;
   qudt:numericValue "2.89"^^xsd:double ;
   qudt:unit <http://qudt.org/vocab/unit#Day> ;
+  rdfs:label "Cochrane" ;
   co:comparison_case co:Quarantine_only ;
   co:desc "The time from symptom onset to diagnosis was statistically significantly shorter in quarantined than in nonquarantined people1.20 versus 2.89 days" ;
   co:measure-entity co:Time_from_symptom_onset_to_diagnosis ;
@@ -1518,6 +1594,7 @@ co:Summary-Cause-Effect3-Effect4-Measure2
   rdf:type co:Measure-Value ;
   qudt:numericValue "14.1"^^xsd:double ;
   qudt:unit <http://qudt.org/vocab/unit#Percent> ;
+  rdfs:label "Cochrane" ;
   co:measure-entity [
       rdf:type co:Mortality ;
     ] ;
@@ -1525,39 +1602,30 @@ co:Summary-Cause-Effect3-Effect4-Measure2
 co:Summary-Cause-Effect3-Effect4-Measure3
   rdf:type co:Measure-Value ;
   qudt:numericValue "511"^^xsd:double ;
+  rdfs:label "Cochrane" ;
   co:measure-entity co:Confirmed_infected_cases_count ;
 .
 co:Summary-Cause-Effect3-Effect4-Measure4
   rdf:type co:Measure-Value ;
   qudt:numericValue "70"^^xsd:double ;
+  rdfs:label "Cochrane" ;
   co:measure-entity [
       rdf:type co:Mortality ;
     ] ;
 .
 co:Summary-Cause-Effect3_Measure_1
   rdf:type co:Measure-Value_Qualitative ;
+  rdfs:label "Cochrane" ;
   co:measure-entity [
       rdf:type co:Transmission ;
     ] ;
   co:qualitativeValue co:Less ;
 .
-co:Summary-Cause-Effect4
-  rdf:type co:Cause-Effect ;
-  co:cause co:Summary-Cause-Effect1-Cause1 ;
-  co:effect co:Cause_Effect_1_cochrane_rapid_review_Effect_4 ;
-.
 co:Summary-Cause-Effect4_Measure_1
   rdf:type co:Measure-Value_Qualitative ;
+  rdfs:label "Cochrane" ;
   co:measure-entity co:Costs_Incurred ;
   co:qualitativeValue co:Less ;
-.
-co:Summary-Cause-Effect5
-  rdf:type co:Cause-Effect ;
-  co:cause [
-      rdf:type co:No_quarantine ;
-      co:measure co:Measure-Value_1 ;
-    ] ;
-  co:effect co:Summary-Cause-Effect1-Effect1 ;
 .
 co:Susceptible-Infectious-Recovered_model
   rdf:type owl:Class ;
@@ -1580,6 +1648,7 @@ co:Systematic_review_method
 .
 co:Taiwan
   rdf:type co:City ;
+  rdfs:label "Taiwan" ;
 .
 co:Time_from_symptom_onset_to_diagnosis
   rdf:type co:Time_to_diagnosis ;
@@ -1621,9 +1690,11 @@ co:Unit_1
 .
 co:United_Kingdom
   rdf:type co:Country ;
+  rdfs:label "United Kingdom" ;
 .
 co:Unprotected_healthcare_workers
   rdf:type co:Domain-relevant_group ;
+  rdfs:label "Unprotected healthcare workers" ;
 .
 co:Vaccination
   rdf:type owl:Class ;
@@ -1637,6 +1708,7 @@ co:Voluntary_quarantine
 .
 co:Work_or_school_contacts
   rdf:type co:Domain-relevant_group ;
+  rdfs:label "work or school contacts" ;
 .
 co:Workplace_closure
   rdf:type owl:Class ;
@@ -1658,6 +1730,7 @@ co:Worsen
 .
 co:Wuhan
   rdf:type co:City ;
+  rdfs:label "Wuhan" ;
 .
 co:cause
   rdf:type owl:ObjectProperty ;
@@ -1762,6 +1835,7 @@ co:excluded_study
 .
 co:haemodialysis_patients
   rdf:type co:Participant_group ;
+  rdfs:label "other patients" ;
 .
 co:id
   rdf:type owl:DatatypeProperty ;
